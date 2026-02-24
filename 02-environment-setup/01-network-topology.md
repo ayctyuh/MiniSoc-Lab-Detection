@@ -17,4 +17,4 @@ Shuffle	           SOAR	          Ubuntu	    192.168.138.149
 Tất cả các máy được cấu hình trong cùng một mạng nội bộ.
 
 3. mô hình kết nối
-![alt text](diagram/image/topo-network.png)
+![alt text](diagram/topo-network.png)
