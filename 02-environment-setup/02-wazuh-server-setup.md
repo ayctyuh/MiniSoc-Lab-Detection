@@ -1,10 +1,12 @@
 1. Yêu cầu hệ thống
-Thành phần	     Giá trị
-OS	Ubuntu     Server 22.04
-IP Address	   192.168.1.10
-RAM	                4GB
-CPU	              2 cores
-Vai trò	      Wazuh Manager + Indexer + Dashboard
+```
+Thành phần      Giá trị
+OS              Ubuntu Server 22.04
+IP Address      192.168.1.10
+RAM             4GB
+CPU             2 cores
+Vai trò         Wazuh Manager + Indexer + Dashboard
+```
 
 3. Cài đặt Wazuh
 3.1 Cập nhật hệ thống

@@ -7,12 +7,14 @@
 
 2. Kiến trúc tổng thể
 Môi trường gồm các thành phần sau:
+```
 Thành phần	       Vai trò	      Hệ điều hành	IP
 Kali Linux	       Attacker	      Kali Linux	192.168.56.10
 Ubuntu agent	   Agent 1	      Ubuntu    	192.168.138.150
 Windows agent  	   Agent 2	      Windows 10	192.168.138.147
 Wazuh Server	   SIEM	          Ubuntu	    192.168.138.10
 Shuffle	           SOAR	          Ubuntu	    192.168.138.149
+```
 
 Tất cả các máy được cấu hình trong cùng một mạng nội bộ.
 
