@@ -60,4 +60,4 @@ docker compose ps
 ```
 ![alt text](diagram/shuffle-start.png)
 3. Kiểm tra trạng thái
-![alt text](02-environment-setup/diagram/shuffle.png)
+![alt text](diagram/shuffle.png)
