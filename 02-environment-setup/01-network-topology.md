@@ -1,5 +1,4 @@
 1. Mục đích thiết kế mạng
-- Môi trường mạng được thiết kế nhằm:
 - Mô phỏng hệ thống nội bộ trong doanh nghiệp
 - Cho phép thực hiện tấn công từ máy Attacker đến các máy nạn nhân
 - Thu thập và phân tích log tập trung thông qua Wazuh Server
@@ -15,8 +14,6 @@ Windows agent  	   Agent 2	      Windows 10	192.168.138.147
 Wazuh Server	   SIEM	          Ubuntu	    192.168.138.10
 Shuffle	           SOAR	          Ubuntu	    192.168.138.149
 ```
-
-Tất cả các máy được cấu hình trong cùng một mạng nội bộ.
 
 3. mô hình kết nối
 ![alt text](diagram/topo-network.png)
