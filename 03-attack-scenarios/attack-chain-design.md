@@ -17,8 +17,8 @@ Môi trường triển khai bao gồm:
 Mô hình triển khai theo kiến trúc mạng nội bộ, trong đó các máy Agent gửi log về Wazuh Server để phân tích và sinh cảnh báo.
 
 Chuỗi tấn công được thiết kế theo các bước sau:
-1. Brute Force vào Windows 1
-Kẻ tấn công sử dụng công cụ Brute Force từ Kali Linux để thực hiện nhiều lần đăng nhập sai thông qua dịch vụ RDP của Windows 1.
+1. Brute Force vào victim 1
+Kẻ tấn công sử dụng công cụ Brute Force từ Kali Linux để thực hiện nhiều lần đăng nhập sai thông qua dịch vụ RDP của victim 1.
 Mục tiêu:
 - Tạo nhiều sự kiện đăng nhập thất bại (Event ID 4625)
 - Kiểm tra khả năng phát hiện tấn công dựa trên tần suất đăng nhập sai
@@ -36,7 +36,7 @@ Mục tiêu:
 - Phân tích nguy cơ khi tài khoản bị xâm nhập
 
 4. Lateral Movement sang máy khác
-Từ Windows 1, kẻ tấn công thực hiện di chuyển ngang sang Victim 2 thông qua RDP hoặc SSH.
+Từ victim 1, kẻ tấn công thực hiện di chuyển ngang sang Victim 2 thông qua RDP hoặc SSH.
 Mục tiêu:
 - Phát hiện đăng nhập từ xa bất thường
 - Theo dõi Logon Type 3 hoặc 10
