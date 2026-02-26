@@ -33,6 +33,7 @@ Luồng phản ứng:
 - Shuffle thực hiện các hành động tự động: gửi email cảnh báo, tạo ticket, ghi log sự cố
 
 4. Mô hình kết nối
+
 ![network-topology](diagram/network-topology.png)
 
 5. Lý do lựa chọn mô hình
