@@ -1,57 +1,71 @@
-Objective:
-- Mục tiêu của bài lab là mô phỏng một chuỗi tấn công hoàn chỉnh theo vòng đời tấn công thực tế trong môi trường doanh nghiệp, bao gồm các giai đoạn:
-Brute Force → Credential Compromise → Lateral Movement → Detection → Automation
+1. Mục tiêu
+```
+Bài lab mô phỏng một chuỗi tấn công hoàn chỉnh theo vòng đời tấn công thực tế trong môi trường doanh nghiệp, bao gồm các giai đoạn:
+Phishing → Initial Access → Brute Force → Credential Compromise → Lateral Movement → Detection → Automation
+Thông qua kịch bản này, hệ thống được kiểm tra khả năng:
+- Thu thập log từ nhiều máy trạm trong cùng mạng nội bộ
+- Phát hiện hành vi bất thường dựa trên rule có sẵn và tùy chỉnh
+- Tương quan sự kiện theo timeline để tái hiện chuỗi tấn công
+- Tự động hóa xử lý cảnh báo thông qua SOAR (Shuffle)
+```
 
-Thông qua kịch bản này, hệ thống sẽ được kiểm tra khả năng:
-- Thu thập log từ nhiều máy trạm
-- Phát hiện hành vi bất thường dựa trên rule
-- Tương quan sự kiện theo timeline
-- Tự động hóa xử lý cảnh báo thông qua SOAR
+2. Kịch bản tấn công
+```
+Một nhân viên trong công ty nhận được email giả mạo (phishing) từ địa chỉ trông có vẻ hợp lệ. Nội dung email thông báo về một tài liệu quan trọng cần xem ngay, kèm theo file đính kèm hoặc đường link tải về. Nhân viên mở file và thực thi mà không nghi ngờ.
+File độc hại chứa một reverse shell payload: khi chạy, máy nạn nhân tự động mở kết nối ra ngoài đến máy chủ của kẻ tấn công. Vì đây là kết nối đi ra (outbound) chứ không phải kết nối vào (inbound), firewall thông thường không chặn được. Qua kết nối này, kẻ tấn công có thể điều khiển máy nạn nhân từ xa và từ đó hoạt động bên trong mạng nội bộ như một thiết bị hợp lệ — đây là lý do kẻ tấn công được cấp phát IP trong dải 192.168.138.0/24.
 
-Môi trường triển khai bao gồm:
-- Attacker: Kali Linux (thực hiện tấn công Brute Force và di chuyển ngang)
-- Victim 1: Windows 10 (cài Wazuh Agent)
-- Victim 2: Windows hoặc Linux (cài Wazuh Agent)
-- SIEM: Wazuh Server (thu thập log và phát hiện tấn công)
-- SOAR: Shuffle (tự động hóa phản ứng sự cố)
-Mô hình triển khai theo kiến trúc mạng nội bộ, trong đó các máy Agent gửi log về Wazuh Server để phân tích và sinh cảnh báo.
+Lưu ý: Trong bài lab này, bước Initial Access được giả định đã thành công. Kali Linux đóng vai trò máy của kẻ tấn công đã có mặt trong mạng nội bộ và bắt đầu thực hiện các bước tiếp theo của chuỗi tấn công.
+```
 
-Chuỗi tấn công được thiết kế theo các bước sau:
-1. Brute Force vào victim 1
-Kẻ tấn công sử dụng công cụ Brute Force từ Kali Linux để thực hiện nhiều lần đăng nhập sai thông qua dịch vụ RDP của victim 1.
+3. Chuỗi tấn công
+
+Bước 0 — Initial Access (Phishing + Reverse Shell)
+```
+Mô tả: Kẻ tấn công gửi email phishing đến nhân viên công ty, đính kèm file độc hại (ví dụ: file .exe giả dạng PDF hoặc file Office có macro). Khi nhân viên thực thi file, một reverse shell được mở, cho phép kẻ tấn công kết nối vào máy nạn nhân từ bên ngoài.
+Kết quả: Kẻ tấn công có quyền truy cập vào máy Victim 1 trong mạng nội bộ, từ đó có thể tiến hành các bước tiếp theo.
+```
+
+Bước 1 — Brute Force vào Victim 1
+```
+Mô tả: Từ máy Kali đã có mặt trong mạng, kẻ tấn công sử dụng công cụ Brute Force (Hydra) để thực hiện nhiều lần đăng nhập sai liên tiếp vào dịch vụ RDP của Victim 1 (Windows 10) nhằm dò tìm mật khẩu của các tài khoản khác trong hệ thống.
+Công cụ: Hydra, Medusa
 Mục tiêu:
-- Tạo nhiều sự kiện đăng nhập thất bại (Event ID 4625)
-- Kiểm tra khả năng phát hiện tấn công dựa trên tần suất đăng nhập sai
+- Tạo nhiều sự kiện đăng nhập thất bại liên tiếp trong thời gian ngắn
+- Kiểm tra khả năng phát hiện tấn công dựa trên tần suất (threshold-based detection)
+```
 
-2. Đăng nhập thành công
-Sau nhiều lần thử mật khẩu, kẻ tấn công đăng nhập thành công vào Windows 1.
+Bước 2 — Đăng nhập thành công (Credential Compromise)
+```
+Mô tả: Sau nhiều lần thử, kẻ tấn công tìm được mật khẩu đúng và đăng nhập thành công vào Victim 1 qua RDP.
 Mục tiêu:
-- Tạo sự kiện đăng nhập thành công (Event ID 4624)
-- Xác định khả năng phát hiện đăng nhập thành công sau nhiều lần thất bại
+- Tạo sự kiện đăng nhập thành công ngay sau chuỗi thất bại
+- Kiểm tra khả năng tương quan: nhiều lần thất bại + 1 lần thành công = tấn công brute force thành công
+```
 
-3. Sử dụng thông tin xác thực đã chiếm đoạt
-Kẻ tấn công sử dụng tài khoản đã bị lộ để thực hiện truy cập hợp lệ vào hệ thống.
+Bước 3 — Sử dụng thông tin xác thực đã chiếm đoạt
+```
+Mô tả: Kẻ tấn công sử dụng tài khoản vừa chiếm được để thực hiện các hành động trong hệ thống: duyệt file, truy cập tài nguyên mạng, leo thang đặc quyền nếu có thể.
 Mục tiêu:
-- Theo dõi hành vi sử dụng credential hợp lệ
-- Phân tích nguy cơ khi tài khoản bị xâm nhập
+- Theo dõi hành vi sử dụng credential hợp lệ sau khi bị lộ
+- Phân tích rủi ro khi tài khoản người dùng thông thường bị xâm nhập
+```
 
-4. Lateral Movement sang máy khác
-Từ victim 1, kẻ tấn công thực hiện di chuyển ngang sang Victim 2 thông qua RDP hoặc SSH.
+Bước 4 — Lateral Movement sang Victim 2
+```
+Mô tả: Từ Victim 1 đã bị kiểm soát, kẻ tấn công thực hiện di chuyển ngang sang Victim 2 (Ubuntu) thông qua SSH, sử dụng credential tìm được hoặc credential mặc định.
+Công cụ: SSH client, RDP client tích hợp sẵn
 Mục tiêu:
-- Phát hiện đăng nhập từ xa bất thường
-- Theo dõi Logon Type 3 hoặc 10
-- Phân tích sự kiện đăng nhập từ máy nội bộ sang máy nội bộ
+- Phát hiện đăng nhập từ xa bất thường giữa hai máy nội bộ
+- Theo dõi Logon Type 3 (Network) hoặc Type 10 (RemoteInteractive)
+- Phân tích sự kiện: IP nguồn là máy nội bộ thay vì IP ngoài
+```
 
-5. Kích hoạt quy trình tự động hóa
-Khi Wazuh phát hiện các hành vi nghi ngờ (Brute Force hoặc Lateral Movement), hệ thống sẽ gửi cảnh báo sang Shuffle.
-Shuffle sẽ thực hiện một hoặc nhiều hành động tự động như:
-- Gửi email cảnh báo
-- Gắn mức độ nghiêm trọng (Severity)
-- Tạo ticket sự cố
-- Ghi log sự cố
-
-Trong suốt chuỗi tấn công, hệ thống dự kiến sẽ phát hiện tại các điểm sau:
-- Nhiều lần đăng nhập thất bại trong thời gian ngắn
-- Đăng nhập thành công sau nhiều lần thất bại
+Bước 5 — Phát hiện và tự động hóa phản ứng
+```
+Mô tả: Wazuh Server liên tục thu thập log từ cả hai Victim. Khi phát hiện các hành vi nghi ngờ vượt ngưỡng cảnh báo, Wazuh tự động gửi webhook đến Shuffle để kích hoạt quy trình phản ứng sự cố.
+Wazuh phát hiện tại các điểm:
+- Nhiều lần đăng nhập thất bại trong thời gian ngắn (brute force threshold)
+- Đăng nhập thành công ngay sau chuỗi thất bại
 - Đăng nhập từ xa bất thường giữa các máy nội bộ
-- Tài khoản có quyền cao được sử dụng trong phiên remote
+- Tài khoản có đặc quyền cao được dùng trong phiên remote
+```
