@@ -10,9 +10,9 @@ Môi trường mạng được thiết kế nhằm mô phỏng hệ thống mạ
 Toàn bộ môi trường lab được triển khai trên các máy ảo (VMware/VirtualBox), cấu hình trong cùng một dải mạng nội bộ 192.168.138.0/24. Các máy giao tiếp trực tiếp với nhau thông qua virtual switch mà không qua NAT hay routing phức tạp.
 ```
 Thành phần    Vai trò               Hệ điều hành        IP                      Ghi chú
-Kali        LinuxAttackerKali          Linux          192.168.138.20        Công cụ: Hydra, Nmap, Netcat
-Windows     AgentVictim 1             Windows 10      192.168.138.147       Wazuh Agent, RDP enabled
-Ubuntu      AgentVictim 2             Ubuntu 22.04    192.168.138.150       Wazuh Agent, SSH enabled
+Kali        Attacker(victim1)         Kali Linux      192.168.138.20        Công cụ: Hydra, Nmap, Netcat
+Windows     AgentVictim 2             Windows 10      192.168.138.147       Wazuh Agent, RDP enabled
+Ubuntu      AgentVictim 3             Ubuntu 22.04    192.168.138.150       Wazuh Agent, SSH enabled
 Wazuh Server    SIEM                  Ubuntu 22.04    192.168.138.10        Wazuh Manager + Dashboard
 Shuffle         SOAR                  Ubuntu 22.04    192.168.138.149       Tự động hóa phản ứng sự cố
 ```
@@ -33,7 +33,7 @@ Luồng phản ứng:
 - Shuffle thực hiện các hành động tự động: gửi email cảnh báo, tạo ticket, ghi log sự cố
 
 4. Mô hình kết nối
-
+![network-topology](diagram/network-topology.png)
 
 5. Lý do lựa chọn mô hình
 Việc đặt tất cả máy trong cùng một subnet phẳng (flat network) là có chủ đích, nhằm:
