@@ -11,16 +11,12 @@ Thông qua kịch bản này, hệ thống được kiểm tra khả năng:
 
 2. Kịch bản tấn công
 ```
-Một nhân viên trong công ty nhận được email giả mạo (phishing) từ địa chỉ trông có vẻ hợp lệ. Nội dung email thông báo về một tài liệu quan
- trọng cần xem ngay, kèm theo file đính kèm hoặc đường link tải về. Nhân viên mở file và thực thi mà không nghi ngờ.
+Một nhân viên trong công ty nhận được email giả mạo (phishing) từ địa chỉ trông có vẻ hợp lệ. Nội dung email thông báo về một tài liệu quan  
+trọng cần xem ngay, kèm theo file đính kèm hoặc đường link tải về. Nhân viên mở file và thực thi mà không nghi ngờ.  
+File độc hại chứa một reverse shell payload: khi chạy, máy nạn nhân tự động mở kết nối ra ngoài đến máy chủ của kẻ tấn công. Vì đây là kết nối   
+đi ra (outbound) chứ không phải kết nối vào (inbound), firewall thông thường không chặn được. Qua kết nối này, kẻ tấn công có thể điều khiển máy nạn nhân từ xa và từ đó hoạt động bên trong mạng nội bộ như một thiết bị hợp lệ — đây là lý do kẻ tấn công được cấp phát IP trong dải 192.168 138.0/24.
 
-File độc hại chứa một reverse shell payload: khi chạy, máy nạn nhân tự động mở kết nối ra ngoài đến máy chủ của kẻ tấn công. Vì đây là kết nối 
-
-đi ra (outbound) chứ không phải kết nối vào (inbound), firewall thông thường không chặn được. Qua kết nối này, kẻ tấn công có thể điều khiển máy 
-
-nạn nhân từ xa và từ đó hoạt động bên trong mạng nội bộ như một thiết bị hợp lệ — đây là lý do kẻ tấn công được cấp phát IP trong dải 192.168.138.0/24.
-
-Lưu ý: Trong bài lab này, bước Initial Access được giả định đã thành công. Kali Linux đóng vai trò máy của kẻ tấn công đã có mặt trong mạng nội bộ và bắt đầu thực hiện các bước tiếp theo của chuỗi tấn công.
+Lưu ý: Trong bài lab này, bước Initial Access được giả định đã thành công.   Kali Linux đóng vai trò máy của kẻ tấn công đã có mặt trong mạng nội bộ và bắt đầu thực hiện các bước tiếp theo của chuỗi tấn công.
 ```
 
 3. Chuỗi tấn công
