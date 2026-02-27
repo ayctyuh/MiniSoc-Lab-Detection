@@ -11,18 +11,17 @@ Toàn bộ môi trường lab được triển khai trên các máy ảo (VMware
 ```
 Thành phần    Vai trò               Hệ điều hành        IP                      Ghi chú
 Kali        Attacker(victim1)         Kali Linux      192.168.138.20        Công cụ: Hydra, Nmap, Netcat
-Windows     AgentVictim 2             Windows 10      192.168.138.147       Wazuh Agent, RDP enabled
-Ubuntu      AgentVictim 3             Ubuntu 22.04    192.168.138.150       Wazuh Agent, SSH enabled
+Ubuntu      AgentVictim 2             Ubuntu 22.04    192.168.138.150       Wazuh Agent, SSH enabled
+Windows     AgentVictim 3             Windows 10      192.168.138.147       Wazuh Agent, RDP enabled
 Wazuh Server    SIEM                  Ubuntu 22.04    192.168.138.10        Wazuh Manager + Dashboard
 Shuffle         SOAR                  Ubuntu 22.04    192.168.138.149       Tự động hóa phản ứng sự cố
 ```
 
 3. Phân vùng và luồng kết nối
-Tất cả các máy nằm trong cùng một subnet 192.168.138.0/24, mô phỏng một flat network nội bộ điển hình trong doanh nghiệp nhỏ chưa áp dụng phân đoạn mạng (network segmentation).
+Tất cả các máy nằm trong cùng một subnet 192.168.138.0/24, mô phỏng một flat network nội bộ trong doanh nghiệp nhỏ chưa áp dụng phân đoạn mạng (network segmentation) tạo điều kiện cho việc di chuyển ngang của hacker.
 Luồng tấn công:
-- Kali Linux → Windows Agent: Brute Force qua RDP (port 3389)
 - Kali Linux → Ubuntu Agent: Brute Force qua SSH (port 22)
-- Windows Agent → Ubuntu Agent: Lateral Movement qua SSH/RDP sau khi chiếm được credential
+- Ubuntu Agent → Windows Agent: Lateral Movement qua SSH/RDP sau khi chiếm được credential
 
 Luồng giám sát:
 - Windows Agent → Wazuh Server: Wazuh Agent gửi log liên tục về SIEM (port 1514)

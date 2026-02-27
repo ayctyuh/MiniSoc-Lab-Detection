@@ -29,7 +29,7 @@ Kết quả: Kẻ tấn công có quyền truy cập vào máy Victim 1 trong m�
 
 Bước 1 — Brute Force vào Victim 1
 ```
-Mô tả: Từ máy Kali đã có mặt trong mạng, kẻ tấn công sử dụng công cụ Brute Force (Hydra) để thực hiện nhiều lần đăng nhập sai liên tiếp vào dịch vụ RDP của Victim 1 (Windows 10) nhằm dò tìm mật khẩu của các tài khoản khác trong hệ thống.
+Mô tả: Từ máy Kali đã có mặt trong mạng, kẻ tấn công sử dụng công cụ Brute Force (Hydra) để thực hiện nhiều lần đăng nhập sai liên tiếp vào dịch vụ SSH của Victim 2 (Ubuntu agent) nhằm dò tìm mật khẩu của các tài khoản khác trong hệ thống.
 Công cụ: Hydra, Medusa
 Mục tiêu:
 - Tạo nhiều sự kiện đăng nhập thất bại liên tiếp trong thời gian ngắn
@@ -38,7 +38,7 @@ Mục tiêu:
 
 Bước 2 — Đăng nhập thành công (Credential Compromise)
 ```
-Mô tả: Sau nhiều lần thử, kẻ tấn công tìm được mật khẩu đúng và đăng nhập thành công vào Victim 1 qua RDP.
+Mô tả: Sau nhiều lần thử, kẻ tấn công tìm được mật khẩu đúng và đăng nhập thành công vào Victim 2 qua SSH.
 Mục tiêu:
 - Tạo sự kiện đăng nhập thành công ngay sau chuỗi thất bại
 - Kiểm tra khả năng tương quan: nhiều lần thất bại + 1 lần thành công = tấn công brute force thành công
@@ -54,11 +54,10 @@ Mục tiêu:
 
 Bước 4 — Lateral Movement sang Victim 2
 ```
-Mô tả: Từ Victim 1 đã bị kiểm soát, kẻ tấn công thực hiện di chuyển ngang sang Victim 2 (Ubuntu) thông qua SSH, sử dụng credential tìm được hoặc credential mặc định.
-Công cụ: SSH client, RDP client tích hợp sẵn
+Mô tả: Từ Victim 2 đã bị kiểm soát, kẻ tấn công thực hiện di chuyển ngang sang Victim 3 (Window agent) thông qua RDP, sử dụng credential tìm được hoặc credential mặc định.
+Công cụ: RDP client tích hợp sẵn
 Mục tiêu:
 - Phát hiện đăng nhập từ xa bất thường giữa hai máy nội bộ
-- Theo dõi Logon Type 3 (Network) hoặc Type 10 (RemoteInteractive)
 - Phân tích sự kiện: IP nguồn là máy nội bộ thay vì IP ngoài
 ```
 
