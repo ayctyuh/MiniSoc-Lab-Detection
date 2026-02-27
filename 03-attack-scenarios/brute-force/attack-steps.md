@@ -32,3 +32,22 @@ ssh://192.168.138.150                                   Giao thức SSH và IP m
 -V                                                      Verbose — hiển thị chi tiết từng lần thử
 -o ~/hydra-result.txt                                   Lưu kết quả vào file
 ```
+![ssh-bruteforce](screenshots/bruteforce-ssh.png)
+
+- Ở lần thử thứ 100 ta đã tìm ra mật khẩu của user Ubuntu 
+
+![alt text](screenshots/bruteforce-ssh-success.png)
+![alt text](screenshots/hydra-result.png)
+
+- Kiểm tra log trên máy ubuntu agent, ta sẽ lọc thông qua địa chỉ IP của attacker.
+```
+sudo grep "192.168.138.20" /var/log/auth.log
+```
+![alt text](screenshots/Linux-log.png)
+- Sau chuỗi thất bại, kẻ tấn công tìm được mật khẩu đúng. Dòng log ghi nhận đăng nhập thành công có dạng Accepted password
+```
+Accepted password for ubuntu from 192.168.138.20 port 59432 ssh2
+```
+- Như vậy quá trình bruteforce đã thành công.
+
+### Bước 3 - Phân tích log trên Wazuh
