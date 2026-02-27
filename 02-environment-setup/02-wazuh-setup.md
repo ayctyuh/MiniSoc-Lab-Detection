@@ -9,11 +9,13 @@ Vai trò         Wazuh Manager + Indexer + Dashboard
 ```
 
 3. Cài đặt Wazuh
+```
 3.1 Cập nhật hệ thống
     sudo apt update && sudo apt upgrade -y
 3.2 Cài đặt Wazuh All-in-One
     curl -sO https://packages.wazuh.com/4.7/wazuh-install.sh
     sudo bash wazuh-install.sh -a
+```
 
 4. Kiểm tra dịch vụ
     sudo systemctl status wazuh-manager
@@ -39,6 +41,6 @@ Vai trò         Wazuh Manager + Indexer + Dashboard
 Sau đó chạy lệnh
 ![alt text](diagram/Linux-agent-command.png)
 Kiểm tra hoạt động bằng cách: sudo systemctl status wazuh-agent
-![alt text](02-environment-setup/diagram/linux-agent-status.png)
+![alt text](diagram/linux-agent-status.png)
 
 Đối với agent window làm tương tự so với linux
