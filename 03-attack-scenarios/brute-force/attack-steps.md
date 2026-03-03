@@ -51,3 +51,89 @@ Accepted password for ubuntu from 192.168.138.20 port 59432 ssh2
 - Như vậy quá trình bruteforce đã thành công.
 
 ### Bước 3 - Phân tích log trên Wazuh
+- Sau khi tiến hành brute force ta sẽ check serverity trên wazuh dashboard
+![alt text](screenshots/Wazuh-log-1.png)
+- Ta thấy có khoảng 189 log được đánh giá vào mức severity low và 370 log được đánh giá vào mức severity medium.  Ta sẽ ưu tiên các log 
+được gán cho độ nguy hiểm cao trước
+![alt text](screenshots/rule.id.2904.png)
+- Khi lọc theo rule.id có thể thấy rule.id=2904 chiếm nhiều phần trăm nhất trong số các rule ta sẽ tiến hành kiểm tra. Nhưng kết quả trả về
+thì không liên quan đến brute force, Rule 2904 — Dpkg (Debian Package) half configured → đây là log hệ thống của Ubuntu ghi nhận trạng thái cài đặt package bị dở dang, hoàn toàn không liên quan đến tấn công. Rule.groups: syslog, dpkg, config_changed → nhóm log quản lý package, không phải security event. Nên có thể khẳng định đây là một noise từ hệ thống -> False positive
+![alt text](screenshots/rule-id.png)
+- Khi kiểm tra trên github về các bộ rule của wazuh thì cho thấy có 3 log cần được lưu ý:
+```
+Rule ID        Mô tả                                        Level       
+40111       Multiple authentication failures                10 (High)
+2502        PAM authentication failures                     7 (Medium)
+5758        Maximum authentication attempts exceeded        8 (Medium)
+```
+- Rule 40111 là rule tần suất (frequency-based) — không kích hoạt từ một sự kiện đơn lẻ mà theo dõi pattern theo thời gian. Cụ thể, rule kích hoạt khi Wazuh phát hiện 12 lần xác thực thất bại liên tiếp từ cùng một IP trong một khoảng thời gian ngắn, đồng thời SSH daemon báo cáo PAM 5 more authentication failures.
+![alt text](screenshots/rule40111.png)
+- Điều này có nghĩa là: không phải người dùng nhập sai mật khẩu vài lần — đây là hành vi tự động, có hệ thống, đặc trưng của công cụ brute force như Hydra.
+- Dữ liệu thực tế từ alert:
+```
+{
+  "agent": {
+    "ip": "192.168.138.150",
+    "name": "UbuntuAgent",
+    "id": "004"
+  },
+  "rule": {
+    "id": "40111",
+    "level": 10,
+    "description": "Multiple authentication failures.",
+    "frequency": 12,
+    "firedtimes": 5,
+    "groups": ["syslog", "attacks", "authentication_failures"],
+    "mitre": {
+      "technique": ["Brute Force"],
+      "id": ["T1110"],
+      "tactic": ["Credential Access"]
+    }
+  },
+  "data": {
+    "srcip": "192.168.138.20",
+    "dstuser": "ubuntu"
+  },
+  "full_log": "Mar 03 13:39:56 huy-VMware-Virtual-Platform sshd[15459]: PAM 5 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.138.20 user=ubuntu"
+}
+```
+- frequency: 12 — Rule yêu cầu ít nhất 12 sự kiện thất bại trước khi kích hoạt. Đây là ngưỡng phân biệt lỗi đăng nhập bình thường với tấn công có chủ đích.
+- firedtimes: 5 — Rule này đã kích hoạt 5 lần trong suốt quá trình tấn công, nghĩa là Hydra đã vượt ngưỡng 12 lần thất bại ít nhất 5 lượt.
+- level: 10 — Mức High, đủ ngưỡng để kích hoạt webhook sang Shuffle xử lý tự động.
+- srcip: 192.168.138.20 — Xác nhận nguồn tấn công là Kali Linux.
+- dstuser: ubuntu — Xác nhận tài khoản bị nhắm mục tiêu.
+- MITRE T1110 — Brute Force, tactic Credential Access
+
+- Sau khi rule 40111 ở mức Medium xác nhận tổng thể rằng brute force đang diễn ra, nhóm Low severity bên dưới mới là nơi ghi lại từng bước chi tiết của cuộc tấn công. Nhìn vào phân bố Top 5 rules, ba rule liên quan trực tiếp đến SSH chiếm tới 90.2% tổng số alert Low — đây là phản ánh chính xác tần suất Hydra đang hoạt động.
+- 
+![alt text](screenshots/low-severity-rule-id.png)
+```
+Rule ID        Mô tả                                        Level       
+5760        authentication_failed                             5
+5503        authentication failure                            5
+2501        LOGIN FAILURE                                     5
+```
+- Lý do các rule này nằm ở mức cảnh báo thấp là do đây là các hành vi có thể xảy ra bình thường trong đời sống,
+như là một nhân viên nhập sai mật khẩu dẫn tới ghi log. 
+- Rule 5503 (10.9%) — Tầng thấp nhất, PAM ghi nhận xác thực thất bại ngay tại cấp độ OS trước khi SSH kịp phản hồi:
+```
+pam_unix(sshd:auth): authentication failure;
+rhost=192.168.138.20 user=ubuntu
+```
+- PAM là lớp kiểm tra mật khẩu đầu tiên mà mọi yêu cầu xác thực phải đi qua. Mỗi lần Hydra gửi mật khẩu sai, PAM từ chối và ghi log ngay — đây là "bằng chứng gốc" ở tầng thấp nhất.
+Rule 5760 (68.9%) — Chiếm gần 70% toàn bộ Low alerts, đây là thông báo Failed password từ SSH daemon sau khi PAM từ chối:
+```
+Failed password for ubuntu from 192.168.138.20 port 43796 ssh2
+```
+- Rule này xuất hiện nhiều nhất vì nó ghi nhận mỗi lần thử của Hydra — với ~100 lần thử thì có ~100 alert 5760. Port nguồn thay đổi ngẫu nhiên mỗi lần (43796, 42356...) — dấu hiệu của công cụ tự động chứ không phải người dùng thao tác thủ công.
+- Rule 2501 (10.4%) — SSH chủ động ngắt session sau khi vượt MaxAuthTries:
+```
+Disconnecting authenticating user ubuntu 192.168.138.20 port 42356:
+Too many authentication failures [preauth]
+```
+[preauth] nghĩa là bị ngắt trước khi xác thực thành công — SSH đang tự bảo vệ. Tuy nhiên Hydra không bị cản lại, nó lập tức mở session mới và vòng lặp 5503 → 5760 → 2501 bắt đầu lại từ đầu. Chính vì vậy rule 2501 xuất hiện nhiều lần, tương ứng với số session bị ngắt.
+Vòng lặp này tiếp diễn liên tục cho đến 13:40:06 — khi Hydra thử đúng mật khẩu ở một session đang chạy và đăng nhập thành công vào tài khoản ubuntu.
+
+### Phát hiện bổ sung
+- Wazuh Vulnerability Detector chạy scan định kỳ trên UbuntuAgent và phát hiện CVE-2024-56180 đang tồn tại trên kernel linux-image-6.17.0-14-generic với điểm CVSS 9.8/10 — lỗ hổng Remote Code Execution cho phép kẻ tấn công thực thi mã từ xa mà không cần xác thực, hiện chưa được vá (status: Active). Phát hiện này cho thấy giá trị của SIEM không chỉ dừng lại ở việc phát hiện tấn công đang diễn ra, mà còn chủ động cảnh báo các rủi ro tiềm ẩn trong hệ thống trước khi bị khai thác.
+![alt text](screenshots/CVE-2024-56180.png)
