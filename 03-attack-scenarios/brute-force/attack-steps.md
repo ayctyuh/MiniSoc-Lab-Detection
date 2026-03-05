@@ -134,6 +134,23 @@ Too many authentication failures [preauth]
 [preauth] nghĩa là bị ngắt trước khi xác thực thành công — SSH đang tự bảo vệ. Tuy nhiên Hydra không bị cản lại, nó lập tức mở session mới và vòng lặp 5503 → 5760 → 2501 bắt đầu lại từ đầu. Chính vì vậy rule 2501 xuất hiện nhiều lần, tương ứng với số session bị ngắt.
 Vòng lặp này tiếp diễn liên tục cho đến 13:40:06 — khi Hydra thử đúng mật khẩu ở một session đang chạy và đăng nhập thành công vào tài khoản ubuntu.
 
+### Bước 4 - Xâm nhập vào hệ thống thông qua credential
+- Sau khi Hydra xác nhận credential hợp lệ, kẻ tấn công chuyển sang giai đoạn Credential Access — sử dụng tài khoản vừa chiếm được để thiết lập kết nối SSH hợp lệ vào Victim 2. Điểm nguy hiểm của giai đoạn này so với brute force: hệ thống không còn thấy hành vi bất thường nữa mà chỉ thấy user ubuntu đang đăng nhập bình thường bằng đúng mật khẩu — nếu không có context của chuỗi brute force trước đó, sự kiện này hoàn toàn trông giống hành vi hợp lệ.
+- Chạy lệnh
+```
+ssh ubuntu@192.168.138.150
+```
+- Sau khi có shell, kẻ tấn công tiến hành thu thập thông tin để hiểu rõ môi trường đang đứng trong đó:
+![alt text](screenshots/ssh-login.png)
+- Kết quả trả về tiết lộ nhiều thông tin quan trọng. whoami và id xác nhận đang chạy với user ubuntu — uid=1001, thuộc group users, không có quyền sudo. Đây là user thường với quyền hạn thấp, chưa thể thực hiện các thao tác hệ thống cấp cao. Tuy nhiên điều đó không có nghĩa là kẻ tấn công bị chặn lại — đây chỉ là bước đầu tiên trong foothold, các bước tiếp theo sẽ tìm cách leo thang đặc quyền.
+
+- Phân tích Log Wazuh: Ngay sau khi kết nối SSH được thiết lập, Wazuh Agent trên Victim 2 ghi nhận sự kiện và gửi về Server:
+![alt text](screenshots/ssh-wazuh.png)
+- Điều này tưởng chừng như rất bình thường, có thể chỉ là một nhân viên nào đó đã truy cập vào tài khoản ubuntu này.
+Tuy nhiên đặt trong ngữ cảnh có rất nhiều luồng đăng nhập bất thường vào tài khoản ubuntu thì đây không thể nào là một người dùng bình thường được, đây là đặc trưng của công cụ tự động.
+- Toàn bộ chuỗi từ lần thử đầu tiên đến lúc đăng nhập thành công diễn ra trong vỏn vẹn vài phút — tốc độ không thể đạt được nếu là người thao tác thủ công. CHo nên có thể chắc chắn đây là một cảnh báo đúng (True positive).
+- Cần chuyển tiếp sang phần phản ứng sự cố.
+
 ### Phát hiện bổ sung
 - Wazuh Vulnerability Detector chạy scan định kỳ trên UbuntuAgent và phát hiện CVE-2024-56180 đang tồn tại trên kernel linux-image-6.17.0-14-generic với điểm CVSS 9.8/10 — lỗ hổng Remote Code Execution cho phép kẻ tấn công thực thi mã từ xa mà không cần xác thực, hiện chưa được vá (status: Active). Phát hiện này cho thấy giá trị của SIEM không chỉ dừng lại ở việc phát hiện tấn công đang diễn ra, mà còn chủ động cảnh báo các rủi ro tiềm ẩn trong hệ thống trước khi bị khai thác.
 ![alt text](screenshots/CVE-2024-56180.png)
