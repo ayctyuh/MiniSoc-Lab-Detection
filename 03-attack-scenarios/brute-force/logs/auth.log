@@ -1,0 +1,466 @@
+2026-03-03T20:28:19.840913+07:00 huy-VMware-Virtual-Platform gdm-launch-environment]: pam_unix(gdm-launch-environment:session): session opened for user gdm(uid=120) by (uid=0)
+2026-03-03T20:28:19.960474+07:00 huy-VMware-Virtual-Platform systemd-logind[1133]: New session c1 of user gdm.
+2026-03-03T20:28:20.082441+07:00 huy-VMware-Virtual-Platform (systemd): pam_unix(systemd-user:session): session opened for user gdm(uid=120) by gdm(uid=0)
+2026-03-03T20:28:26.630599+07:00 huy-VMware-Virtual-Platform polkitd[1076]: Registered Authentication Agent for unix-session:c1 (system bus name :1.43 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+2026-03-03T20:29:12.992241+07:00 huy-VMware-Virtual-Platform dbus-daemon[1016]: [system] Failed to activate service 'org.bluez': timed out (service_start_timeout=25000ms)
+2026-03-03T20:29:16.557912+07:00 huy-VMware-Virtual-Platform gdm-password]: gkr-pam: unable to locate daemon control file
+2026-03-03T20:29:16.558089+07:00 huy-VMware-Virtual-Platform gdm-password]: gkr-pam: stashed password to try later in open session
+2026-03-03T20:29:16.573836+07:00 huy-VMware-Virtual-Platform gdm-password]: pam_unix(gdm-password:session): session opened for user huy(uid=1000) by huy(uid=0)
+2026-03-03T20:29:16.615247+07:00 huy-VMware-Virtual-Platform systemd-logind[1133]: New session 2 of user huy.
+2026-03-03T20:29:16.686365+07:00 huy-VMware-Virtual-Platform (systemd): pam_unix(systemd-user:session): session opened for user huy(uid=1000) by huy(uid=0)
+2026-03-03T20:29:17.324305+07:00 huy-VMware-Virtual-Platform gdm-password]: gkr-pam: unlocked login keyring
+2026-03-03T20:29:18.416050+07:00 huy-VMware-Virtual-Platform gnome-keyring-daemon[3360]: The Secret Service was already initialized
+2026-03-03T20:29:18.416953+07:00 huy-VMware-Virtual-Platform gnome-keyring-daemon[3573]: discover_other_daemon: 1
+2026-03-03T20:29:18.422711+07:00 huy-VMware-Virtual-Platform gnome-keyring-daemon[3360]: The PKCS#11 component was already initialized
+2026-03-03T20:29:18.423697+07:00 huy-VMware-Virtual-Platform gnome-keyring-daemon[3575]: discover_other_daemon: 1
+2026-03-03T20:29:18.449712+07:00 huy-VMware-Virtual-Platform gnome-keyring-daemon[3583]: discover_other_daemon: 1
+2026-03-03T20:29:23.407201+07:00 huy-VMware-Virtual-Platform polkitd[1076]: Registered Authentication Agent for unix-session:2 (system bus name :1.86 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+2026-03-03T20:29:28.354972+07:00 huy-VMware-Virtual-Platform gdm-launch-environment]: pam_unix(gdm-launch-environment:session): session closed for user gdm
+2026-03-03T20:29:28.471111+07:00 huy-VMware-Virtual-Platform systemd-logind[1133]: Session c1 logged out. Waiting for processes to exit.
+2026-03-03T20:29:28.501933+07:00 huy-VMware-Virtual-Platform polkitd[1076]: Unregistered Authentication Agent for unix-session:c1 (system bus name :1.43, object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8) (disconnected from bus)
+2026-03-03T20:29:28.528169+07:00 huy-VMware-Virtual-Platform systemd-logind[1133]: Removed session c1.
+2026-03-03T20:30:01.308537+07:00 huy-VMware-Virtual-Platform CRON[5157]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-03-03T20:30:01.312548+07:00 huy-VMware-Virtual-Platform CRON[5157]: pam_unix(cron:session): session closed for user root
+2026-03-03T20:30:26.822117+07:00 huy-VMware-Virtual-Platform pkexec: pam_unix(polkit-1:session): session opened for user root(uid=0) by huy(uid=1000)
+2026-03-03T20:30:26.824223+07:00 huy-VMware-Virtual-Platform pkexec[5681]: huy: Executing command [USER=root] [TTY=unknown] [CWD=/home/huy] [COMMAND=/usr/lib/update-notifier/package-system-locked]
+2026-03-03T20:35:01.336089+07:00 huy-VMware-Virtual-Platform CRON[6208]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-03-03T20:35:01.350204+07:00 huy-VMware-Virtual-Platform CRON[6208]: pam_unix(cron:session): session closed for user root
+2026-03-03T20:38:32.183389+07:00 huy-VMware-Virtual-Platform sshd[13873]: Received disconnect from 192.168.138.20 port 60896:11: Bye Bye [preauth]
+2026-03-03T20:38:32.234844+07:00 huy-VMware-Virtual-Platform sshd[13873]: Disconnected from authenticating user ubuntu 192.168.138.20 port 60896 [preauth]
+2026-03-03T20:38:32.646232+07:00 huy-VMware-Virtual-Platform sshd[13878]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.138.20  user=ubuntu
+2026-03-03T20:38:32.677913+07:00 huy-VMware-Virtual-Platform sshd[13877]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.138.20  user=ubuntu
+2026-03-03T20:38:32.699877+07:00 huy-VMware-Virtual-Platform sshd[13876]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.138.20  user=ubuntu
+2026-03-03T20:38:32.702642+07:00 huy-VMware-Virtual-Platform sshd[13875]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.138.20  user=ubuntu
+2026-03-03T20:38:34.689963+07:00 huy-VMware-Virtual-Platform sshd[13878]: Failed password for ubuntu from 192.168.138.20 port 60932 ssh2
+2026-03-03T20:38:34.720664+07:00 huy-VMware-Virtual-Platform sshd[13877]: Failed password for ubuntu from 192.168.138.20 port 60930 ssh2
+2026-03-03T20:38:34.740842+07:00 huy-VMware-Virtual-Platform sshd[13876]: Failed password for ubuntu from 192.168.138.20 port 60914 ssh2
+2026-03-03T20:38:34.743806+07:00 huy-VMware-Virtual-Platform sshd[13875]: Failed password for ubuntu from 192.168.138.20 port 60908 ssh2
+2026-03-03T20:38:37.407217+07:00 huy-VMware-Virtual-Platform sshd[13876]: Failed password for ubuntu from 192.168.138.20 port 60914 ssh2
+2026-03-03T20:38:37.421562+07:00 huy-VMware-Virtual-Platform sshd[13878]: Failed password for ubuntu from 192.168.138.20 port 60932 ssh2
+2026-03-03T20:38:37.452451+07:00 huy-VMware-Virtual-Platform sshd[13877]: Failed password for ubuntu from 192.168.138.20 port 60930 ssh2
+2026-03-03T20:38:37.468217+07:00 huy-VMware-Virtual-Platform sshd[13875]: Failed password for ubuntu from 192.168.138.20 port 60908 ssh2
+2026-03-03T20:38:39.223147+07:00 huy-VMware-Virtual-Platform sshd[13878]: Failed password for ubuntu from 192.168.138.20 port 60932 ssh2
+2026-03-03T20:38:39.296010+07:00 huy-VMware-Virtual-Platform sshd[13877]: Failed password for ubuntu from 192.168.138.20 port 60930 ssh2
+2026-03-03T20:38:39.318768+07:00 huy-VMware-Virtual-Platform sshd[13875]: Failed password for ubuntu from 192.168.138.20 port 60908 ssh2
+2026-03-03T20:38:39.326310+07:00 huy-VMware-Virtual-Platform sshd[13876]: Failed password for ubuntu from 192.168.138.20 port 60914 ssh2
+2026-03-03T20:38:42.987669+07:00 huy-VMware-Virtual-Platform sshd[13875]: Failed password for ubuntu from 192.168.138.20 port 60908 ssh2
+2026-03-03T20:38:43.034803+07:00 huy-VMware-Virtual-Platform sshd[13876]: Failed password for ubuntu from 192.168.138.20 port 60914 ssh2
+2026-03-03T20:38:43.062549+07:00 huy-VMware-Virtual-Platform sshd[13877]: Failed password for ubuntu from 192.168.138.20 port 60930 ssh2
+2026-03-03T20:38:43.067588+07:00 huy-VMware-Virtual-Platform sshd[13878]: Failed password for ubuntu from 192.168.138.20 port 60932 ssh2
+2026-03-03T20:38:45.472105+07:00 huy-VMware-Virtual-Platform sshd[13875]: Failed password for ubuntu from 192.168.138.20 port 60908 ssh2
+2026-03-03T20:38:47.165955+07:00 huy-VMware-Virtual-Platform sshd[13875]: Failed password for ubuntu from 192.168.138.20 port 60908 ssh2
+2026-03-03T20:38:47.208874+07:00 huy-VMware-Virtual-Platform sshd[13878]: Failed password for ubuntu from 192.168.138.20 port 60932 ssh2
+2026-03-03T20:38:47.226305+07:00 huy-VMware-Virtual-Platform sshd[13877]: Failed password for ubuntu from 192.168.138.20 port 60930 ssh2
+2026-03-03T20:38:47.234583+07:00 huy-VMware-Virtual-Platform sshd[13876]: Failed password for ubuntu from 192.168.138.20 port 60914 ssh2
+2026-03-03T20:38:48.213647+07:00 huy-VMware-Virtual-Platform sshd[13875]: error: maximum authentication attempts exceeded for ubuntu from 192.168.138.20 port 60908 ssh2 [preauth]
+2026-03-03T20:38:48.214543+07:00 huy-VMware-Virtual-Platform sshd[13875]: Disconnecting authenticating user ubuntu 192.168.138.20 port 60908: Too many authentication failures [preauth]
+2026-03-03T20:38:48.214580+07:00 huy-VMware-Virtual-Platform sshd[13875]: PAM 5 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.138.20  user=ubuntu
+2026-03-03T20:38:48.214614+07:00 huy-VMware-Virtual-Platform sshd[13875]: PAM service(sshd) ignoring max retries; 6 > 3
+2026-03-03T20:38:48.350593+07:00 huy-VMware-Virtual-Platform sshd[14227]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.138.20  user=ubuntu
+2026-03-03T20:38:50.158619+07:00 huy-VMware-Virtual-Platform sshd[13878]: Failed password for ubuntu from 192.168.138.20 port 60932 ssh2
+2026-03-03T20:38:50.202550+07:00 huy-VMware-Virtual-Platform sshd[13877]: Failed password for ubuntu from 192.168.138.20 port 60930 ssh2
+2026-03-03T20:38:50.256202+07:00 huy-VMware-Virtual-Platform sshd[14227]: Failed password for ubuntu from 192.168.138.20 port 58946 ssh2
+2026-03-03T20:38:50.257444+07:00 huy-VMware-Virtual-Platform sshd[13876]: Failed password for ubuntu from 192.168.138.20 port 60914 ssh2
+2026-03-03T20:38:50.788446+07:00 huy-VMware-Virtual-Platform sshd[13878]: error: maximum authentication attempts exceeded for ubuntu from 192.168.138.20 port 60932 ssh2 [preauth]
+2026-03-03T20:38:50.788546+07:00 huy-VMware-Virtual-Platform sshd[13878]: Disconnecting authenticating user ubuntu 192.168.138.20 port 60932: Too many authentication failures [preauth]
+2026-03-03T20:38:50.789957+07:00 huy-VMware-Virtual-Platform sshd[13878]: PAM 5 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.138.20  user=ubuntu
+2026-03-03T20:38:50.790006+07:00 huy-VMware-Virtual-Platform sshd[13878]: PAM service(sshd) ignoring max retries; 6 > 3
+2026-03-03T20:38:50.801507+07:00 huy-VMware-Virtual-Platform sshd[13877]: error: maximum authentication attempts exceeded for ubuntu from 192.168.138.20 port 60930 ssh2 [preauth]
+2026-03-03T20:38:50.801631+07:00 huy-VMware-Virtual-Platform sshd[13877]: Disconnecting authenticating user ubuntu 192.168.138.20 port 60930: Too many authentication failures [preauth]
+2026-03-03T20:38:50.803276+07:00 huy-VMware-Virtual-Platform sshd[13877]: PAM 5 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.138.20  user=ubuntu
+2026-03-03T20:38:50.804005+07:00 huy-VMware-Virtual-Platform sshd[13877]: PAM service(sshd) ignoring max retries; 6 > 3
+2026-03-03T20:38:50.827558+07:00 huy-VMware-Virtual-Platform sshd[13876]: error: maximum authentication attempts exceeded for ubuntu from 192.168.138.20 port 60914 ssh2 [preauth]
+2026-03-03T20:38:50.830276+07:00 huy-VMware-Virtual-Platform sshd[13876]: Disconnecting authenticating user ubuntu 192.168.138.20 port 60914: Too many authentication failures [preauth]
+2026-03-03T20:38:50.830388+07:00 huy-VMware-Virtual-Platform sshd[13876]: PAM 5 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.138.20  user=ubuntu
+2026-03-03T20:38:50.830475+07:00 huy-VMware-Virtual-Platform sshd[13876]: PAM service(sshd) ignoring max retries; 6 > 3
+2026-03-03T20:38:50.994502+07:00 huy-VMware-Virtual-Platform sshd[14299]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.138.20  user=ubuntu
+2026-03-03T20:38:51.019518+07:00 huy-VMware-Virtual-Platform sshd[14295]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.138.20  user=ubuntu
+2026-03-03T20:38:51.029747+07:00 huy-VMware-Virtual-Platform sshd[14296]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.138.20  user=ubuntu
+2026-03-03T20:38:52.841140+07:00 huy-VMware-Virtual-Platform sshd[14299]: Failed password for ubuntu from 192.168.138.20 port 56562 ssh2
+2026-03-03T20:38:52.865813+07:00 huy-VMware-Virtual-Platform sshd[14295]: Failed password for ubuntu from 192.168.138.20 port 56546 ssh2
+2026-03-03T20:38:52.876813+07:00 huy-VMware-Virtual-Platform sshd[14296]: Failed password for ubuntu from 192.168.138.20 port 56548 ssh2
+2026-03-03T20:38:52.881615+07:00 huy-VMware-Virtual-Platform sshd[14227]: Failed password for ubuntu from 192.168.138.20 port 58946 ssh2
+2026-03-03T20:38:55.794226+07:00 huy-VMware-Virtual-Platform sshd[14295]: Failed password for ubuntu from 192.168.138.20 port 56546 ssh2
+2026-03-03T20:38:55.905530+07:00 huy-VMware-Virtual-Platform sshd[14296]: Failed password for ubuntu from 192.168.138.20 port 56548 ssh2
+2026-03-03T20:38:55.932614+07:00 huy-VMware-Virtual-Platform sshd[14299]: Failed password for ubuntu from 192.168.138.20 port 56562 ssh2
+2026-03-03T20:38:55.955361+07:00 huy-VMware-Virtual-Platform sshd[14227]: Failed password for ubuntu from 192.168.138.20 port 58946 ssh2
+2026-03-03T20:38:57.828431+07:00 huy-VMware-Virtual-Platform sshd[14295]: Failed password for ubuntu from 192.168.138.20 port 56546 ssh2
+2026-03-03T20:38:57.872708+07:00 huy-VMware-Virtual-Platform sshd[14299]: Failed password for ubuntu from 192.168.138.20 port 56562 ssh2
+2026-03-03T20:38:57.891382+07:00 huy-VMware-Virtual-Platform sshd[14296]: Failed password for ubuntu from 192.168.138.20 port 56548 ssh2
+2026-03-03T20:38:57.911254+07:00 huy-VMware-Virtual-Platform sshd[14227]: Failed password for ubuntu from 192.168.138.20 port 58946 ssh2
+2026-03-03T20:39:00.360259+07:00 huy-VMware-Virtual-Platform sshd[14295]: Failed password for ubuntu from 192.168.138.20 port 56546 ssh2
+2026-03-03T20:39:00.387101+07:00 huy-VMware-Virtual-Platform sshd[14296]: Failed password for ubuntu from 192.168.138.20 port 56548 ssh2
+2026-03-03T20:39:00.412682+07:00 huy-VMware-Virtual-Platform sshd[14299]: Failed password for ubuntu from 192.168.138.20 port 56562 ssh2
+2026-03-03T20:39:00.426295+07:00 huy-VMware-Virtual-Platform sshd[14227]: Failed password for ubuntu from 192.168.138.20 port 58946 ssh2
+2026-03-03T20:39:02.739574+07:00 huy-VMware-Virtual-Platform sshd[14295]: Failed password for ubuntu from 192.168.138.20 port 56546 ssh2
+2026-03-03T20:39:02.801426+07:00 huy-VMware-Virtual-Platform sshd[14296]: Failed password for ubuntu from 192.168.138.20 port 56548 ssh2
+2026-03-03T20:39:02.809638+07:00 huy-VMware-Virtual-Platform sshd[14299]: Failed password for ubuntu from 192.168.138.20 port 56562 ssh2
+2026-03-03T20:39:02.827895+07:00 huy-VMware-Virtual-Platform sshd[14227]: Failed password for ubuntu from 192.168.138.20 port 58946 ssh2
+2026-03-03T20:39:03.945522+07:00 huy-VMware-Virtual-Platform sshd[14227]: error: maximum authentication attempts exceeded for ubuntu from 192.168.138.20 port 58946 ssh2 [preauth]
+2026-03-03T20:39:03.949441+07:00 huy-VMware-Virtual-Platform sshd[14227]: Disconnecting authenticating user ubuntu 192.168.138.20 port 58946: Too many authentication failures [preauth]
+2026-03-03T20:39:03.949498+07:00 huy-VMware-Virtual-Platform sshd[14227]: PAM 5 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.138.20  user=ubuntu
+2026-03-03T20:39:03.950017+07:00 huy-VMware-Virtual-Platform sshd[14227]: PAM service(sshd) ignoring max retries; 6 > 3
+2026-03-03T20:39:04.094609+07:00 huy-VMware-Virtual-Platform sshd[14648]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.138.20  user=ubuntu
+2026-03-03T20:39:06.197803+07:00 huy-VMware-Virtual-Platform sshd[14648]: Failed password for ubuntu from 192.168.138.20 port 53682 ssh2
+2026-03-03T20:39:06.273528+07:00 huy-VMware-Virtual-Platform sshd[14295]: Failed password for ubuntu from 192.168.138.20 port 56546 ssh2
+2026-03-03T20:39:06.284045+07:00 huy-VMware-Virtual-Platform sshd[14296]: Failed password for ubuntu from 192.168.138.20 port 56548 ssh2
+2026-03-03T20:39:06.320725+07:00 huy-VMware-Virtual-Platform sshd[14299]: Failed password for ubuntu from 192.168.138.20 port 56562 ssh2
+2026-03-03T20:39:06.494696+07:00 huy-VMware-Virtual-Platform sshd[14295]: error: maximum authentication attempts exceeded for ubuntu from 192.168.138.20 port 56546 ssh2 [preauth]
+2026-03-03T20:39:06.496228+07:00 huy-VMware-Virtual-Platform sshd[14295]: Disconnecting authenticating user ubuntu 192.168.138.20 port 56546: Too many authentication failures [preauth]
+2026-03-03T20:39:06.499080+07:00 huy-VMware-Virtual-Platform sshd[14295]: PAM 5 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.138.20  user=ubuntu
+2026-03-03T20:39:06.499148+07:00 huy-VMware-Virtual-Platform sshd[14295]: PAM service(sshd) ignoring max retries; 6 > 3
+2026-03-03T20:39:06.513913+07:00 huy-VMware-Virtual-Platform sshd[14296]: error: maximum authentication attempts exceeded for ubuntu from 192.168.138.20 port 56548 ssh2 [preauth]
+2026-03-03T20:39:06.514184+07:00 huy-VMware-Virtual-Platform sshd[14296]: Disconnecting authenticating user ubuntu 192.168.138.20 port 56548: Too many authentication failures [preauth]
+2026-03-03T20:39:06.516107+07:00 huy-VMware-Virtual-Platform sshd[14296]: PAM 5 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.138.20  user=ubuntu
+2026-03-03T20:39:06.516145+07:00 huy-VMware-Virtual-Platform sshd[14296]: PAM service(sshd) ignoring max retries; 6 > 3
+2026-03-03T20:39:06.536288+07:00 huy-VMware-Virtual-Platform sshd[14299]: error: maximum authentication attempts exceeded for ubuntu from 192.168.138.20 port 56562 ssh2 [preauth]
+2026-03-03T20:39:06.536570+07:00 huy-VMware-Virtual-Platform sshd[14299]: Disconnecting authenticating user ubuntu 192.168.138.20 port 56562: Too many authentication failures [preauth]
+2026-03-03T20:39:06.536913+07:00 huy-VMware-Virtual-Platform sshd[14299]: PAM 5 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.138.20  user=ubuntu
+2026-03-03T20:39:06.537078+07:00 huy-VMware-Virtual-Platform sshd[14299]: PAM service(sshd) ignoring max retries; 6 > 3
+2026-03-03T20:39:06.678717+07:00 huy-VMware-Virtual-Platform sshd[14688]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.138.20  user=ubuntu
+2026-03-03T20:39:06.685196+07:00 huy-VMware-Virtual-Platform sshd[14686]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.138.20  user=ubuntu
+2026-03-03T20:39:06.707779+07:00 huy-VMware-Virtual-Platform sshd[14690]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.138.20  user=ubuntu
+2026-03-03T20:39:09.387944+07:00 huy-VMware-Virtual-Platform sshd[14688]: Failed password for ubuntu from 192.168.138.20 port 53708 ssh2
+2026-03-03T20:39:09.393320+07:00 huy-VMware-Virtual-Platform sshd[14686]: Failed password for ubuntu from 192.168.138.20 port 53696 ssh2
+2026-03-03T20:39:09.417960+07:00 huy-VMware-Virtual-Platform sshd[14690]: Failed password for ubuntu from 192.168.138.20 port 53722 ssh2
+2026-03-03T20:39:09.443189+07:00 huy-VMware-Virtual-Platform sshd[14648]: Failed password for ubuntu from 192.168.138.20 port 53682 ssh2
+2026-03-03T20:39:13.927982+07:00 huy-VMware-Virtual-Platform sshd[14686]: Failed password for ubuntu from 192.168.138.20 port 53696 ssh2
+2026-03-03T20:39:13.965130+07:00 huy-VMware-Virtual-Platform sshd[14688]: Failed password for ubuntu from 192.168.138.20 port 53708 ssh2
+2026-03-03T20:39:13.995450+07:00 huy-VMware-Virtual-Platform sshd[14690]: Failed password for ubuntu from 192.168.138.20 port 53722 ssh2
+2026-03-03T20:39:14.012926+07:00 huy-VMware-Virtual-Platform sshd[14648]: Failed password for ubuntu from 192.168.138.20 port 53682 ssh2
+2026-03-03T20:39:16.953494+07:00 huy-VMware-Virtual-Platform sshd[14686]: Failed password for ubuntu from 192.168.138.20 port 53696 ssh2
+2026-03-03T20:39:16.984714+07:00 huy-VMware-Virtual-Platform sshd[14688]: Failed password for ubuntu from 192.168.138.20 port 53708 ssh2
+2026-03-03T20:39:17.021147+07:00 huy-VMware-Virtual-Platform sshd[14690]: Failed password for ubuntu from 192.168.138.20 port 53722 ssh2
+2026-03-03T20:39:17.045810+07:00 huy-VMware-Virtual-Platform sshd[14648]: Failed password for ubuntu from 192.168.138.20 port 53682 ssh2
+2026-03-03T20:39:19.145450+07:00 huy-VMware-Virtual-Platform sshd[14686]: Failed password for ubuntu from 192.168.138.20 port 53696 ssh2
+2026-03-03T20:39:19.178553+07:00 huy-VMware-Virtual-Platform sshd[14688]: Failed password for ubuntu from 192.168.138.20 port 53708 ssh2
+2026-03-03T20:39:19.362921+07:00 huy-VMware-Virtual-Platform sshd[14648]: Failed password for ubuntu from 192.168.138.20 port 53682 ssh2
+2026-03-03T20:39:19.369723+07:00 huy-VMware-Virtual-Platform sshd[14690]: Failed password for ubuntu from 192.168.138.20 port 53722 ssh2
+2026-03-03T20:39:21.197022+07:00 huy-VMware-Virtual-Platform sshd[14686]: Failed password for ubuntu from 192.168.138.20 port 53696 ssh2
+2026-03-03T20:39:21.222577+07:00 huy-VMware-Virtual-Platform sshd[14688]: Failed password for ubuntu from 192.168.138.20 port 53708 ssh2
+2026-03-03T20:39:21.242939+07:00 huy-VMware-Virtual-Platform sshd[14690]: Failed password for ubuntu from 192.168.138.20 port 53722 ssh2
+2026-03-03T20:39:21.257604+07:00 huy-VMware-Virtual-Platform sshd[14648]: Failed password for ubuntu from 192.168.138.20 port 53682 ssh2
+2026-03-03T20:39:22.280605+07:00 huy-VMware-Virtual-Platform sshd[14648]: error: maximum authentication attempts exceeded for ubuntu from 192.168.138.20 port 53682 ssh2 [preauth]
+2026-03-03T20:39:22.280716+07:00 huy-VMware-Virtual-Platform sshd[14648]: Disconnecting authenticating user ubuntu 192.168.138.20 port 53682: Too many authentication failures [preauth]
+2026-03-03T20:39:22.280758+07:00 huy-VMware-Virtual-Platform sshd[14648]: PAM 5 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.138.20  user=ubuntu
+2026-03-03T20:39:22.280838+07:00 huy-VMware-Virtual-Platform sshd[14648]: PAM service(sshd) ignoring max retries; 6 > 3
+2026-03-03T20:39:22.406276+07:00 huy-VMware-Virtual-Platform sshd[15079]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.138.20  user=ubuntu
+2026-03-03T20:39:24.166716+07:00 huy-VMware-Virtual-Platform sshd[14688]: Failed password for ubuntu from 192.168.138.20 port 53708 ssh2
+2026-03-03T20:39:24.169396+07:00 huy-VMware-Virtual-Platform sshd[14686]: Failed password for ubuntu from 192.168.138.20 port 53696 ssh2
+2026-03-03T20:39:24.223813+07:00 huy-VMware-Virtual-Platform sshd[14690]: Failed password for ubuntu from 192.168.138.20 port 53722 ssh2
+2026-03-03T20:39:24.312428+07:00 huy-VMware-Virtual-Platform sshd[15079]: Failed password for ubuntu from 192.168.138.20 port 40208 ssh2
+2026-03-03T20:39:24.758458+07:00 huy-VMware-Virtual-Platform pkexec: pam_unix(polkit-1:session): session opened for user root(uid=0) by huy(uid=1000)
+2026-03-03T20:39:24.762548+07:00 huy-VMware-Virtual-Platform pkexec[15154]: huy: Executing command [USER=root] [TTY=unknown] [CWD=/home/huy] [COMMAND=/usr/lib/update-notifier/package-system-locked]
+2026-03-03T20:39:24.810139+07:00 huy-VMware-Virtual-Platform sshd[14686]: error: maximum authentication attempts exceeded for ubuntu from 192.168.138.20 port 53696 ssh2 [preauth]
+2026-03-03T20:39:24.810231+07:00 huy-VMware-Virtual-Platform sshd[14686]: Disconnecting authenticating user ubuntu 192.168.138.20 port 53696: Too many authentication failures [preauth]
+2026-03-03T20:39:24.810271+07:00 huy-VMware-Virtual-Platform sshd[14686]: PAM 5 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.138.20  user=ubuntu
+2026-03-03T20:39:24.810300+07:00 huy-VMware-Virtual-Platform sshd[14686]: PAM service(sshd) ignoring max retries; 6 > 3
+2026-03-03T20:39:24.823030+07:00 huy-VMware-Virtual-Platform sshd[14688]: error: maximum authentication attempts exceeded for ubuntu from 192.168.138.20 port 53708 ssh2 [preauth]
+2026-03-03T20:39:24.823145+07:00 huy-VMware-Virtual-Platform sshd[14688]: Disconnecting authenticating user ubuntu 192.168.138.20 port 53708: Too many authentication failures [preauth]
+2026-03-03T20:39:24.823201+07:00 huy-VMware-Virtual-Platform sshd[14688]: PAM 5 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.138.20  user=ubuntu
+2026-03-03T20:39:24.823252+07:00 huy-VMware-Virtual-Platform sshd[14688]: PAM service(sshd) ignoring max retries; 6 > 3
+2026-03-03T20:39:24.852115+07:00 huy-VMware-Virtual-Platform sshd[14690]: error: maximum authentication attempts exceeded for ubuntu from 192.168.138.20 port 53722 ssh2 [preauth]
+2026-03-03T20:39:24.852226+07:00 huy-VMware-Virtual-Platform sshd[14690]: Disconnecting authenticating user ubuntu 192.168.138.20 port 53722: Too many authentication failures [preauth]
+2026-03-03T20:39:24.853971+07:00 huy-VMware-Virtual-Platform sshd[14690]: PAM 5 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.138.20  user=ubuntu
+2026-03-03T20:39:24.854143+07:00 huy-VMware-Virtual-Platform sshd[14690]: PAM service(sshd) ignoring max retries; 6 > 3
+2026-03-03T20:39:25.073270+07:00 huy-VMware-Virtual-Platform sshd[15187]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.138.20  user=ubuntu
+2026-03-03T20:39:25.109905+07:00 huy-VMware-Virtual-Platform sshd[15189]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.138.20  user=ubuntu
+2026-03-03T20:39:25.132683+07:00 huy-VMware-Virtual-Platform sshd[15181]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.138.20  user=ubuntu
+2026-03-03T20:39:26.920187+07:00 huy-VMware-Virtual-Platform sshd[15187]: Failed password for ubuntu from 192.168.138.20 port 40216 ssh2
+2026-03-03T20:39:26.957068+07:00 huy-VMware-Virtual-Platform sshd[15189]: Failed password for ubuntu from 192.168.138.20 port 40226 ssh2
+2026-03-03T20:39:26.979300+07:00 huy-VMware-Virtual-Platform sshd[15181]: Failed password for ubuntu from 192.168.138.20 port 40212 ssh2
+2026-03-03T20:39:26.987721+07:00 huy-VMware-Virtual-Platform sshd[15079]: Failed password for ubuntu from 192.168.138.20 port 40208 ssh2
+2026-03-03T20:39:29.879695+07:00 huy-VMware-Virtual-Platform sshd[15187]: Failed password for ubuntu from 192.168.138.20 port 40216 ssh2
+2026-03-03T20:39:29.935415+07:00 huy-VMware-Virtual-Platform sshd[15181]: Failed password for ubuntu from 192.168.138.20 port 40212 ssh2
+2026-03-03T20:39:29.955192+07:00 huy-VMware-Virtual-Platform sshd[15189]: Failed password for ubuntu from 192.168.138.20 port 40226 ssh2
+2026-03-03T20:39:29.959539+07:00 huy-VMware-Virtual-Platform sshd[15079]: Failed password for ubuntu from 192.168.138.20 port 40208 ssh2
+2026-03-03T20:39:32.580836+07:00 huy-VMware-Virtual-Platform sshd[15187]: Failed password for ubuntu from 192.168.138.20 port 40216 ssh2
+2026-03-03T20:39:32.606382+07:00 huy-VMware-Virtual-Platform sshd[15079]: Failed password for ubuntu from 192.168.138.20 port 40208 ssh2
+2026-03-03T20:39:32.627718+07:00 huy-VMware-Virtual-Platform sshd[15181]: Failed password for ubuntu from 192.168.138.20 port 40212 ssh2
+2026-03-03T20:39:32.630336+07:00 huy-VMware-Virtual-Platform sshd[15189]: Failed password for ubuntu from 192.168.138.20 port 40226 ssh2
+2026-03-03T20:39:34.807801+07:00 huy-VMware-Virtual-Platform sshd[15187]: Failed password for ubuntu from 192.168.138.20 port 40216 ssh2
+2026-03-03T20:39:34.850325+07:00 huy-VMware-Virtual-Platform sshd[15181]: Failed password for ubuntu from 192.168.138.20 port 40212 ssh2
+2026-03-03T20:39:34.852703+07:00 huy-VMware-Virtual-Platform sshd[15189]: Failed password for ubuntu from 192.168.138.20 port 40226 ssh2
+2026-03-03T20:39:34.856527+07:00 huy-VMware-Virtual-Platform sshd[15079]: Failed password for ubuntu from 192.168.138.20 port 40208 ssh2
+2026-03-03T20:39:37.087607+07:00 huy-VMware-Virtual-Platform sshd[15187]: Failed password for ubuntu from 192.168.138.20 port 40216 ssh2
+2026-03-03T20:39:37.342732+07:00 huy-VMware-Virtual-Platform sshd[15189]: Failed password for ubuntu from 192.168.138.20 port 40226 ssh2
+2026-03-03T20:39:37.355815+07:00 huy-VMware-Virtual-Platform sshd[15079]: Failed password for ubuntu from 192.168.138.20 port 40208 ssh2
+2026-03-03T20:39:37.362743+07:00 huy-VMware-Virtual-Platform sshd[15181]: Failed password for ubuntu from 192.168.138.20 port 40212 ssh2
+2026-03-03T20:39:38.156236+07:00 huy-VMware-Virtual-Platform sshd[15079]: error: maximum authentication attempts exceeded for ubuntu from 192.168.138.20 port 40208 ssh2 [preauth]
+2026-03-03T20:39:38.156381+07:00 huy-VMware-Virtual-Platform sshd[15079]: Disconnecting authenticating user ubuntu 192.168.138.20 port 40208: Too many authentication failures [preauth]
+2026-03-03T20:39:38.157132+07:00 huy-VMware-Virtual-Platform sshd[15079]: PAM 5 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.138.20  user=ubuntu
+2026-03-03T20:39:38.159335+07:00 huy-VMware-Virtual-Platform sshd[15079]: PAM service(sshd) ignoring max retries; 6 > 3
+2026-03-03T20:39:38.281739+07:00 huy-VMware-Virtual-Platform sshd[15454]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.138.20  user=ubuntu
+2026-03-03T20:39:40.292915+07:00 huy-VMware-Virtual-Platform sshd[15187]: Failed password for ubuntu from 192.168.138.20 port 40216 ssh2
+2026-03-03T20:39:40.325184+07:00 huy-VMware-Virtual-Platform sshd[15181]: Failed password for ubuntu from 192.168.138.20 port 40212 ssh2
+2026-03-03T20:39:40.338931+07:00 huy-VMware-Virtual-Platform sshd[15189]: Failed password for ubuntu from 192.168.138.20 port 40226 ssh2
+2026-03-03T20:39:40.384463+07:00 huy-VMware-Virtual-Platform sshd[15454]: Failed password for ubuntu from 192.168.138.20 port 33320 ssh2
+2026-03-03T20:39:40.551594+07:00 huy-VMware-Virtual-Platform sshd[15187]: error: maximum authentication attempts exceeded for ubuntu from 192.168.138.20 port 40216 ssh2 [preauth]
+2026-03-03T20:39:40.551686+07:00 huy-VMware-Virtual-Platform sshd[15187]: Disconnecting authenticating user ubuntu 192.168.138.20 port 40216: Too many authentication failures [preauth]
+2026-03-03T20:39:40.552186+07:00 huy-VMware-Virtual-Platform sshd[15187]: PAM 5 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.138.20  user=ubuntu
+2026-03-03T20:39:40.552325+07:00 huy-VMware-Virtual-Platform sshd[15187]: PAM service(sshd) ignoring max retries; 6 > 3
+2026-03-03T20:39:40.666557+07:00 huy-VMware-Virtual-Platform sshd[15456]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.138.20  user=ubuntu
+2026-03-03T20:39:40.771980+07:00 huy-VMware-Virtual-Platform sshd[15189]: error: maximum authentication attempts exceeded for ubuntu from 192.168.138.20 port 40226 ssh2 [preauth]
+2026-03-03T20:39:40.772399+07:00 huy-VMware-Virtual-Platform sshd[15189]: Disconnecting authenticating user ubuntu 192.168.138.20 port 40226: Too many authentication failures [preauth]
+2026-03-03T20:39:40.772500+07:00 huy-VMware-Virtual-Platform sshd[15181]: error: maximum authentication attempts exceeded for ubuntu from 192.168.138.20 port 40212 ssh2 [preauth]
+2026-03-03T20:39:40.773189+07:00 huy-VMware-Virtual-Platform sshd[15181]: Disconnecting authenticating user ubuntu 192.168.138.20 port 40212: Too many authentication failures [preauth]
+2026-03-03T20:39:40.775474+07:00 huy-VMware-Virtual-Platform sshd[15181]: PAM 5 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.138.20  user=ubuntu
+2026-03-03T20:39:40.775570+07:00 huy-VMware-Virtual-Platform sshd[15189]: PAM 5 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.138.20  user=ubuntu
+2026-03-03T20:39:40.775662+07:00 huy-VMware-Virtual-Platform sshd[15181]: PAM service(sshd) ignoring max retries; 6 > 3
+2026-03-03T20:39:40.775736+07:00 huy-VMware-Virtual-Platform sshd[15189]: PAM service(sshd) ignoring max retries; 6 > 3
+2026-03-03T20:39:40.902341+07:00 huy-VMware-Virtual-Platform sshd[15459]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.138.20  user=ubuntu
+2026-03-03T20:39:40.939200+07:00 huy-VMware-Virtual-Platform sshd[15458]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.138.20  user=ubuntu
+2026-03-03T20:39:42.377112+07:00 huy-VMware-Virtual-Platform sshd[15456]: Failed password for ubuntu from 192.168.138.20 port 42348 ssh2
+2026-03-03T20:39:42.613325+07:00 huy-VMware-Virtual-Platform sshd[15459]: Failed password for ubuntu from 192.168.138.20 port 42356 ssh2
+2026-03-03T20:39:42.639602+07:00 huy-VMware-Virtual-Platform sshd[15454]: Failed password for ubuntu from 192.168.138.20 port 33320 ssh2
+2026-03-03T20:39:42.650010+07:00 huy-VMware-Virtual-Platform sshd[15458]: Failed password for ubuntu from 192.168.138.20 port 42352 ssh2
+2026-03-03T20:39:44.726934+07:00 huy-VMware-Virtual-Platform sshd[15456]: Failed password for ubuntu from 192.168.138.20 port 42348 ssh2
+2026-03-03T20:39:44.956017+07:00 huy-VMware-Virtual-Platform sshd[15454]: Failed password for ubuntu from 192.168.138.20 port 33320 ssh2
+2026-03-03T20:39:44.986828+07:00 huy-VMware-Virtual-Platform sshd[15458]: Failed password for ubuntu from 192.168.138.20 port 42352 ssh2
+2026-03-03T20:39:44.987957+07:00 huy-VMware-Virtual-Platform sshd[15459]: Failed password for ubuntu from 192.168.138.20 port 42356 ssh2
+2026-03-03T20:39:47.615811+07:00 huy-VMware-Virtual-Platform sshd[15456]: Failed password for ubuntu from 192.168.138.20 port 42348 ssh2
+2026-03-03T20:39:47.975067+07:00 huy-VMware-Virtual-Platform sshd[15454]: Failed password for ubuntu from 192.168.138.20 port 33320 ssh2
+2026-03-03T20:39:48.005401+07:00 huy-VMware-Virtual-Platform sshd[15458]: Failed password for ubuntu from 192.168.138.20 port 42352 ssh2
+2026-03-03T20:39:48.012595+07:00 huy-VMware-Virtual-Platform sshd[15459]: Failed password for ubuntu from 192.168.138.20 port 42356 ssh2
+2026-03-03T20:39:50.627254+07:00 huy-VMware-Virtual-Platform sshd[15456]: Failed password for ubuntu from 192.168.138.20 port 42348 ssh2
+2026-03-03T20:39:50.869672+07:00 huy-VMware-Virtual-Platform sshd[15458]: Failed password for ubuntu from 192.168.138.20 port 42352 ssh2
+2026-03-03T20:39:50.885259+07:00 huy-VMware-Virtual-Platform sshd[15454]: Failed password for ubuntu from 192.168.138.20 port 33320 ssh2
+2026-03-03T20:39:50.905796+07:00 huy-VMware-Virtual-Platform sshd[15459]: Failed password for ubuntu from 192.168.138.20 port 42356 ssh2
+2026-03-03T20:39:52.655365+07:00 huy-VMware-Virtual-Platform sshd[15456]: Failed password for ubuntu from 192.168.138.20 port 42348 ssh2
+2026-03-03T20:39:52.905620+07:00 huy-VMware-Virtual-Platform sshd[15459]: Failed password for ubuntu from 192.168.138.20 port 42356 ssh2
+2026-03-03T20:39:52.906581+07:00 huy-VMware-Virtual-Platform sshd[15458]: Failed password for ubuntu from 192.168.138.20 port 42352 ssh2
+2026-03-03T20:39:52.909436+07:00 huy-VMware-Virtual-Platform sshd[15454]: Failed password for ubuntu from 192.168.138.20 port 33320 ssh2
+2026-03-03T20:39:53.864367+07:00 huy-VMware-Virtual-Platform sshd[15454]: error: maximum authentication attempts exceeded for ubuntu from 192.168.138.20 port 33320 ssh2 [preauth]
+2026-03-03T20:39:53.864495+07:00 huy-VMware-Virtual-Platform sshd[15454]: Disconnecting authenticating user ubuntu 192.168.138.20 port 33320: Too many authentication failures [preauth]
+2026-03-03T20:39:53.866077+07:00 huy-VMware-Virtual-Platform sshd[15454]: PAM 5 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.138.20  user=ubuntu
+2026-03-03T20:39:53.866211+07:00 huy-VMware-Virtual-Platform sshd[15454]: PAM service(sshd) ignoring max retries; 6 > 3
+2026-03-03T20:39:53.993376+07:00 huy-VMware-Virtual-Platform sshd[15462]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.138.20  user=ubuntu
+2026-03-03T20:39:55.859296+07:00 huy-VMware-Virtual-Platform sshd[15456]: Failed password for ubuntu from 192.168.138.20 port 42348 ssh2
+2026-03-03T20:39:56.095390+07:00 huy-VMware-Virtual-Platform sshd[15458]: Failed password for ubuntu from 192.168.138.20 port 42352 ssh2
+2026-03-03T20:39:56.112332+07:00 huy-VMware-Virtual-Platform sshd[15459]: Failed password for ubuntu from 192.168.138.20 port 42356 ssh2
+2026-03-03T20:39:56.156414+07:00 huy-VMware-Virtual-Platform sshd[15462]: Failed password for ubuntu from 192.168.138.20 port 43786 ssh2
+2026-03-03T20:39:56.250208+07:00 huy-VMware-Virtual-Platform sshd[15456]: error: maximum authentication attempts exceeded for ubuntu from 192.168.138.20 port 42348 ssh2 [preauth]
+2026-03-03T20:39:56.250423+07:00 huy-VMware-Virtual-Platform sshd[15456]: Disconnecting authenticating user ubuntu 192.168.138.20 port 42348: Too many authentication failures [preauth]
+2026-03-03T20:39:56.250482+07:00 huy-VMware-Virtual-Platform sshd[15456]: PAM 5 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.138.20  user=ubuntu
+2026-03-03T20:39:56.250539+07:00 huy-VMware-Virtual-Platform sshd[15456]: PAM service(sshd) ignoring max retries; 6 > 3
+2026-03-03T20:39:56.384245+07:00 huy-VMware-Virtual-Platform sshd[15464]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.138.20  user=ubuntu
+2026-03-03T20:39:56.481376+07:00 huy-VMware-Virtual-Platform sshd[15458]: error: maximum authentication attempts exceeded for ubuntu from 192.168.138.20 port 42352 ssh2 [preauth]
+2026-03-03T20:39:56.481644+07:00 huy-VMware-Virtual-Platform sshd[15458]: Disconnecting authenticating user ubuntu 192.168.138.20 port 42352: Too many authentication failures [preauth]
+2026-03-03T20:39:56.482931+07:00 huy-VMware-Virtual-Platform sshd[15458]: PAM 5 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.138.20  user=ubuntu
+2026-03-03T20:39:56.482989+07:00 huy-VMware-Virtual-Platform sshd[15458]: PAM service(sshd) ignoring max retries; 6 > 3
+2026-03-03T20:39:56.491786+07:00 huy-VMware-Virtual-Platform sshd[15459]: error: maximum authentication attempts exceeded for ubuntu from 192.168.138.20 port 42356 ssh2 [preauth]
+2026-03-03T20:39:56.491946+07:00 huy-VMware-Virtual-Platform sshd[15459]: Disconnecting authenticating user ubuntu 192.168.138.20 port 42356: Too many authentication failures [preauth]
+2026-03-03T20:39:56.492773+07:00 huy-VMware-Virtual-Platform sshd[15459]: PAM 5 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.138.20  user=ubuntu
+2026-03-03T20:39:56.492861+07:00 huy-VMware-Virtual-Platform sshd[15459]: PAM service(sshd) ignoring max retries; 6 > 3
+2026-03-03T20:39:56.617233+07:00 huy-VMware-Virtual-Platform sshd[15466]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.138.20  user=ubuntu
+2026-03-03T20:39:56.661838+07:00 huy-VMware-Virtual-Platform sshd[15467]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.138.20  user=ubuntu
+2026-03-03T20:39:58.290020+07:00 huy-VMware-Virtual-Platform sshd[15464]: Failed password for ubuntu from 192.168.138.20 port 43788 ssh2
+2026-03-03T20:39:58.524527+07:00 huy-VMware-Virtual-Platform sshd[15466]: Failed password for ubuntu from 192.168.138.20 port 43796 ssh2
+2026-03-03T20:39:58.539902+07:00 huy-VMware-Virtual-Platform sshd[15462]: Failed password for ubuntu from 192.168.138.20 port 43786 ssh2
+2026-03-03T20:39:58.569645+07:00 huy-VMware-Virtual-Platform sshd[15467]: Failed password for ubuntu from 192.168.138.20 port 43806 ssh2
+2026-03-03T20:40:00.823208+07:00 huy-VMware-Virtual-Platform sshd[15464]: Failed password for ubuntu from 192.168.138.20 port 43788 ssh2
+2026-03-03T20:40:00.852612+07:00 huy-VMware-Virtual-Platform sshd[15462]: Failed password for ubuntu from 192.168.138.20 port 43786 ssh2
+2026-03-03T20:40:00.884677+07:00 huy-VMware-Virtual-Platform sshd[15467]: Failed password for ubuntu from 192.168.138.20 port 43806 ssh2
+2026-03-03T20:40:00.885396+07:00 huy-VMware-Virtual-Platform sshd[15466]: Failed password for ubuntu from 192.168.138.20 port 43796 ssh2
+2026-03-03T20:40:03.514743+07:00 huy-VMware-Virtual-Platform sshd[15464]: Failed password for ubuntu from 192.168.138.20 port 43788 ssh2
+2026-03-03T20:40:03.753650+07:00 huy-VMware-Virtual-Platform sshd[15466]: Failed password for ubuntu from 192.168.138.20 port 43796 ssh2
+2026-03-03T20:40:03.762511+07:00 huy-VMware-Virtual-Platform sshd[15462]: Failed password for ubuntu from 192.168.138.20 port 43786 ssh2
+2026-03-03T20:40:03.793866+07:00 huy-VMware-Virtual-Platform sshd[15467]: Failed password for ubuntu from 192.168.138.20 port 43806 ssh2
+2026-03-03T20:40:04.546348+07:00 huy-VMware-Virtual-Platform sshd[15467]: Accepted password for ubuntu from 192.168.138.20 port 43806 ssh2
+2026-03-03T20:40:04.547363+07:00 huy-VMware-Virtual-Platform sshd[15467]: pam_unix(sshd:session): session opened for user ubuntu(uid=1001) by ubuntu(uid=0)
+2026-03-03T20:40:04.584704+07:00 huy-VMware-Virtual-Platform systemd-logind[1133]: New session 6 of user ubuntu.
+2026-03-03T20:40:04.657521+07:00 huy-VMware-Virtual-Platform (systemd): pam_unix(systemd-user:session): session opened for user ubuntu(uid=1001) by ubuntu(uid=0)
+2026-03-03T20:40:05.248803+07:00 huy-VMware-Virtual-Platform sshd[15467]: pam_unix(sshd:session): session closed for user ubuntu
+2026-03-03T20:40:05.261890+07:00 huy-VMware-Virtual-Platform systemd-logind[1133]: Session 6 logged out. Waiting for processes to exit.
+2026-03-03T20:40:06.193217+07:00 huy-VMware-Virtual-Platform sshd[15464]: Failed password for ubuntu from 192.168.138.20 port 43788 ssh2
+2026-03-03T20:40:06.432532+07:00 huy-VMware-Virtual-Platform sshd[15462]: Failed password for ubuntu from 192.168.138.20 port 43786 ssh2
+2026-03-03T20:40:06.463014+07:00 huy-VMware-Virtual-Platform sshd[15466]: Failed password for ubuntu from 192.168.138.20 port 43796 ssh2
+2026-03-03T20:40:06.740060+07:00 huy-VMware-Virtual-Platform sshd[15464]: Connection closed by authenticating user ubuntu 192.168.138.20 port 43788 [preauth]
+2026-03-03T20:40:06.740769+07:00 huy-VMware-Virtual-Platform sshd[15464]: PAM 3 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.138.20  user=ubuntu
+2026-03-03T20:40:06.740911+07:00 huy-VMware-Virtual-Platform sshd[15464]: PAM service(sshd) ignoring max retries; 4 > 3
+2026-03-03T20:40:06.966205+07:00 huy-VMware-Virtual-Platform sshd[15462]: Connection closed by authenticating user ubuntu 192.168.138.20 port 43786 [preauth]
+2026-03-03T20:40:06.966335+07:00 huy-VMware-Virtual-Platform sshd[15462]: PAM 4 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.138.20  user=ubuntu
+2026-03-03T20:40:06.966363+07:00 huy-VMware-Virtual-Platform sshd[15462]: PAM service(sshd) ignoring max retries; 5 > 3
+2026-03-03T20:40:06.978047+07:00 huy-VMware-Virtual-Platform sshd[15466]: Connection closed by authenticating user ubuntu 192.168.138.20 port 43796 [preauth]
+2026-03-03T20:40:06.978953+07:00 huy-VMware-Virtual-Platform sshd[15466]: PAM 3 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.138.20  user=ubuntu
+2026-03-03T20:40:06.981316+07:00 huy-VMware-Virtual-Platform sshd[15466]: PAM service(sshd) ignoring max retries; 4 > 3
+2026-03-03T20:40:07.252598+07:00 huy-VMware-Virtual-Platform systemd-logind[1133]: Removed session 6.
+2026-03-03T20:40:17.444384+07:00 huy-VMware-Virtual-Platform (sd-pam): pam_unix(systemd-user:session): session closed for user ubuntu
+2026-03-03T20:42:24.570871+07:00 huy-VMware-Virtual-Platform pkexec: pam_unix(polkit-1:session): session opened for user root(uid=0) by huy(uid=1000)
+2026-03-03T20:42:24.574390+07:00 huy-VMware-Virtual-Platform pkexec[15789]: huy: Executing command [USER=root] [TTY=unknown] [CWD=/home/huy] [COMMAND=/usr/lib/update-notifier/package-system-locked]
+2026-03-03T20:45:01.446283+07:00 huy-VMware-Virtual-Platform CRON[15815]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-03-03T20:45:01.451567+07:00 huy-VMware-Virtual-Platform CRON[15815]: pam_unix(cron:session): session closed for user root
+2026-03-03T20:55:01.478142+07:00 huy-VMware-Virtual-Platform CRON[15849]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-03-03T20:55:01.497171+07:00 huy-VMware-Virtual-Platform CRON[15849]: pam_unix(cron:session): session closed for user root
+2026-03-03T21:05:01.512808+07:00 huy-VMware-Virtual-Platform CRON[16012]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-03-03T21:05:01.519552+07:00 huy-VMware-Virtual-Platform CRON[16012]: pam_unix(cron:session): session closed for user root
+2026-03-03T21:15:01.155526+07:00 huy-VMware-Virtual-Platform CRON[16051]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-03-03T21:15:01.170935+07:00 huy-VMware-Virtual-Platform CRON[16051]: pam_unix(cron:session): session closed for user root
+2026-03-03T21:17:01.178682+07:00 huy-VMware-Virtual-Platform CRON[16065]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-03-03T21:17:01.189019+07:00 huy-VMware-Virtual-Platform CRON[16065]: pam_unix(cron:session): session closed for user root
+2026-03-03T21:25:01.208679+07:00 huy-VMware-Virtual-Platform CRON[16083]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-03-03T21:25:01.224019+07:00 huy-VMware-Virtual-Platform CRON[16083]: pam_unix(cron:session): session closed for user root
+2026-03-03T21:30:01.265654+07:00 huy-VMware-Virtual-Platform CRON[16118]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-03-03T21:30:01.286888+07:00 huy-VMware-Virtual-Platform CRON[16118]: pam_unix(cron:session): session closed for user root
+2026-03-03T21:35:01.297683+07:00 huy-VMware-Virtual-Platform CRON[16139]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-03-03T21:35:01.306627+07:00 huy-VMware-Virtual-Platform CRON[16139]: pam_unix(cron:session): session closed for user root
+2026-03-03T21:45:01.324870+07:00 huy-VMware-Virtual-Platform CRON[16166]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-03-03T21:45:01.338341+07:00 huy-VMware-Virtual-Platform CRON[16166]: pam_unix(cron:session): session closed for user root
+2026-03-03T21:55:01.370797+07:00 huy-VMware-Virtual-Platform CRON[16198]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-03-03T21:55:01.382701+07:00 huy-VMware-Virtual-Platform CRON[16198]: pam_unix(cron:session): session closed for user root
+2026-03-03T22:05:01.394485+07:00 huy-VMware-Virtual-Platform CRON[16238]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-03-03T22:05:01.403343+07:00 huy-VMware-Virtual-Platform CRON[16238]: pam_unix(cron:session): session closed for user root
+2026-03-03T22:15:01.456837+07:00 huy-VMware-Virtual-Platform CRON[16267]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-03-03T22:15:01.465503+07:00 huy-VMware-Virtual-Platform CRON[16267]: pam_unix(cron:session): session closed for user root
+2026-03-05T21:00:01.480440+07:00 huy-VMware-Virtual-Platform systemd-logind[1395]: New seat seat0.
+2026-03-05T21:00:01.480446+07:00 huy-VMware-Virtual-Platform systemd-logind[1395]: Watching system buttons on /dev/input/event0 (Power Button)
+2026-03-05T21:00:01.480462+07:00 huy-VMware-Virtual-Platform systemd-logind[1395]: Watching system buttons on /dev/input/event1 (AT Translated Set 2 keyboard)
+2026-03-05T21:00:01.677781+07:00 huy-VMware-Virtual-Platform polkitd[1345]: Loading rules from directory /etc/polkit-1/rules.d
+2026-03-05T21:00:01.686951+07:00 huy-VMware-Virtual-Platform polkitd[1345]: Loading rules from directory /usr/share/polkit-1/rules.d
+2026-03-05T21:00:01.747717+07:00 huy-VMware-Virtual-Platform polkitd[1345]: Finished loading, compiling and executing 16 rules
+2026-03-05T21:00:01.757267+07:00 huy-VMware-Virtual-Platform polkitd[1345]: Acquired the name org.freedesktop.PolicyKit1 on the system bus
+2026-03-05T21:00:04.544954+07:00 huy-VMware-Virtual-Platform sshd[1697]: Server listening on 0.0.0.0 port 22.
+2026-03-05T21:00:04.545812+07:00 huy-VMware-Virtual-Platform sshd[1697]: Server listening on :: port 22.
+2026-03-05T21:00:05.088165+07:00 huy-VMware-Virtual-Platform gdm-launch-environment]: pam_unix(gdm-launch-environment:session): session opened for user gdm(uid=120) by (uid=0)
+2026-03-05T21:00:05.158651+07:00 huy-VMware-Virtual-Platform systemd-logind[1395]: New session c1 of user gdm.
+2026-03-05T21:00:05.267273+07:00 huy-VMware-Virtual-Platform (systemd): pam_unix(systemd-user:session): session opened for user gdm(uid=120) by gdm(uid=0)
+2026-03-05T21:00:11.710026+07:00 huy-VMware-Virtual-Platform polkitd[1345]: Registered Authentication Agent for unix-session:c1 (system bus name :1.38 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+2026-03-05T21:00:27.422050+07:00 huy-VMware-Virtual-Platform gdm-password]: gkr-pam: unable to locate daemon control file
+2026-03-05T21:00:27.422993+07:00 huy-VMware-Virtual-Platform gdm-password]: gkr-pam: stashed password to try later in open session
+2026-03-05T21:00:27.435908+07:00 huy-VMware-Virtual-Platform gdm-password]: pam_unix(gdm-password:session): session opened for user huy(uid=1000) by huy(uid=0)
+2026-03-05T21:00:27.451694+07:00 huy-VMware-Virtual-Platform systemd-logind[1395]: New session 2 of user huy.
+2026-03-05T21:00:27.524859+07:00 huy-VMware-Virtual-Platform (systemd): pam_unix(systemd-user:session): session opened for user huy(uid=1000) by huy(uid=0)
+2026-03-05T21:00:28.009923+07:00 huy-VMware-Virtual-Platform gdm-password]: gkr-pam: unlocked login keyring
+2026-03-05T21:00:28.835252+07:00 huy-VMware-Virtual-Platform gnome-keyring-daemon[3257]: The PKCS#11 component was already initialized
+2026-03-05T21:00:28.836619+07:00 huy-VMware-Virtual-Platform gnome-keyring-daemon[3446]: discover_other_daemon: 1
+2026-03-05T21:00:28.847466+07:00 huy-VMware-Virtual-Platform gnome-keyring-daemon[3257]: The Secret Service was already initialized
+2026-03-05T21:00:28.848404+07:00 huy-VMware-Virtual-Platform gnome-keyring-daemon[3450]: discover_other_daemon: 1
+2026-03-05T21:00:28.855971+07:00 huy-VMware-Virtual-Platform gnome-keyring-daemon[3452]: discover_other_daemon: 1
+2026-03-05T21:00:32.209478+07:00 huy-VMware-Virtual-Platform polkitd[1345]: Registered Authentication Agent for unix-session:2 (system bus name :1.79 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+2026-03-05T21:00:34.951453+07:00 huy-VMware-Virtual-Platform gdm-launch-environment]: pam_unix(gdm-launch-environment:session): session closed for user gdm
+2026-03-05T21:00:35.020629+07:00 huy-VMware-Virtual-Platform systemd-logind[1395]: Session c1 logged out. Waiting for processes to exit.
+2026-03-05T21:00:35.145630+07:00 huy-VMware-Virtual-Platform polkitd[1345]: Unregistered Authentication Agent for unix-session:c1 (system bus name :1.38, object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8) (disconnected from bus)
+2026-03-05T21:00:35.193552+07:00 huy-VMware-Virtual-Platform systemd-logind[1395]: Removed session c1.
+2026-03-05T21:01:34.431243+07:00 huy-VMware-Virtual-Platform pkexec: pam_unix(polkit-1:session): session opened for user root(uid=0) by huy(uid=1000)
+2026-03-05T21:01:34.432916+07:00 huy-VMware-Virtual-Platform pkexec[4353]: huy: Executing command [USER=root] [TTY=unknown] [CWD=/home/huy] [COMMAND=/usr/lib/update-notifier/package-system-locked]
+2026-03-05T21:04:57.579836+07:00 huy-VMware-Virtual-Platform systemd-logind[1109]: New seat seat0.
+2026-03-05T21:04:57.579841+07:00 huy-VMware-Virtual-Platform systemd-logind[1109]: Watching system buttons on /dev/input/event0 (Power Button)
+2026-03-05T21:04:57.579845+07:00 huy-VMware-Virtual-Platform systemd-logind[1109]: Watching system buttons on /dev/input/event1 (AT Translated Set 2 keyboard)
+2026-03-05T21:04:57.579874+07:00 huy-VMware-Virtual-Platform polkitd[1075]: Loading rules from directory /etc/polkit-1/rules.d
+2026-03-05T21:04:57.579878+07:00 huy-VMware-Virtual-Platform polkitd[1075]: Loading rules from directory /usr/share/polkit-1/rules.d
+2026-03-05T21:04:57.579891+07:00 huy-VMware-Virtual-Platform polkitd[1075]: Finished loading, compiling and executing 16 rules
+2026-03-05T21:04:57.579903+07:00 huy-VMware-Virtual-Platform polkitd[1075]: Acquired the name org.freedesktop.PolicyKit1 on the system bus
+2026-03-05T21:05:00.401863+07:00 huy-VMware-Virtual-Platform sshd[1614]: Server listening on 0.0.0.0 port 22.
+2026-03-05T21:05:00.402731+07:00 huy-VMware-Virtual-Platform sshd[1614]: Server listening on :: port 22.
+2026-03-05T21:05:00.737516+07:00 huy-VMware-Virtual-Platform gdm-launch-environment]: pam_unix(gdm-launch-environment:session): session opened for user gdm(uid=120) by (uid=0)
+2026-03-05T21:05:00.813173+07:00 huy-VMware-Virtual-Platform systemd-logind[1109]: New session c1 of user gdm.
+2026-03-05T21:05:00.887629+07:00 huy-VMware-Virtual-Platform (systemd): pam_unix(systemd-user:session): session opened for user gdm(uid=120) by gdm(uid=0)
+2026-03-05T21:05:01.468145+07:00 huy-VMware-Virtual-Platform CRON[1743]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-03-05T21:05:01.505726+07:00 huy-VMware-Virtual-Platform CRON[1743]: pam_unix(cron:session): session closed for user root
+2026-03-05T21:05:08.039517+07:00 huy-VMware-Virtual-Platform polkitd[1075]: Registered Authentication Agent for unix-session:c1 (system bus name :1.39 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+2026-03-05T21:05:20.210222+07:00 huy-VMware-Virtual-Platform gdm-password]: pam_unix(gdm-password:auth): authentication failure; logname= uid=0 euid=0 tty=/dev/tty1 ruser= rhost=  user=huy
+2026-03-05T21:05:27.264005+07:00 huy-VMware-Virtual-Platform gdm-password]: gkr-pam: unable to locate daemon control file
+2026-03-05T21:05:27.264184+07:00 huy-VMware-Virtual-Platform gdm-password]: gkr-pam: stashed password to try later in open session
+2026-03-05T21:05:27.279023+07:00 huy-VMware-Virtual-Platform gdm-password]: pam_unix(gdm-password:session): session opened for user huy(uid=1000) by huy(uid=0)
+2026-03-05T21:05:27.309297+07:00 huy-VMware-Virtual-Platform systemd-logind[1109]: New session 3 of user huy.
+2026-03-05T21:05:27.359273+07:00 huy-VMware-Virtual-Platform (systemd): pam_unix(systemd-user:session): session opened for user huy(uid=1000) by huy(uid=0)
+2026-03-05T21:05:27.785373+07:00 huy-VMware-Virtual-Platform gdm-password]: gkr-pam: unlocked login keyring
+2026-03-05T21:05:28.523792+07:00 huy-VMware-Virtual-Platform gnome-keyring-daemon[2972]: The PKCS#11 component was already initialized
+2026-03-05T21:05:28.524738+07:00 huy-VMware-Virtual-Platform gnome-keyring-daemon[3105]: discover_other_daemon: 1
+2026-03-05T21:05:28.527019+07:00 huy-VMware-Virtual-Platform gnome-keyring-daemon[2972]: The Secret Service was already initialized
+2026-03-05T21:05:28.527709+07:00 huy-VMware-Virtual-Platform gnome-keyring-daemon[3106]: discover_other_daemon: 1
+2026-03-05T21:05:28.552610+07:00 huy-VMware-Virtual-Platform gnome-keyring-daemon[3116]: discover_other_daemon: 1
+2026-03-05T21:05:32.243543+07:00 huy-VMware-Virtual-Platform polkitd[1075]: Registered Authentication Agent for unix-session:3 (system bus name :1.79 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+2026-03-05T21:05:35.977415+07:00 huy-VMware-Virtual-Platform gdm-launch-environment]: pam_unix(gdm-launch-environment:session): session closed for user gdm
+2026-03-05T21:05:36.027733+07:00 huy-VMware-Virtual-Platform systemd-logind[1109]: Session c1 logged out. Waiting for processes to exit.
+2026-03-05T21:05:36.127793+07:00 huy-VMware-Virtual-Platform polkitd[1075]: Unregistered Authentication Agent for unix-session:c1 (system bus name :1.39, object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8) (disconnected from bus)
+2026-03-05T21:05:36.258305+07:00 huy-VMware-Virtual-Platform systemd-logind[1109]: Removed session c1.
+2026-03-05T21:06:35.182677+07:00 huy-VMware-Virtual-Platform pkexec: pam_unix(polkit-1:session): session opened for user root(uid=0) by huy(uid=1000)
+2026-03-05T21:06:35.184196+07:00 huy-VMware-Virtual-Platform pkexec[4108]: huy: Executing command [USER=root] [TTY=unknown] [CWD=/home/huy] [COMMAND=/usr/lib/update-notifier/package-system-locked]
+2026-03-05T21:10:33.568142+07:00 huy-VMware-Virtual-Platform sudo: pam_unix(sudo:auth): conversation failed
+2026-03-05T21:10:33.570037+07:00 huy-VMware-Virtual-Platform sudo: pam_unix(sudo:auth): auth could not identify password for [huy]
+2026-03-05T21:12:05.750990+07:00 huy-VMware-Virtual-Platform sudo:      huy : TTY=pts/0 ; PWD=/home/huy ; USER=root ; COMMAND=/usr/bin/systemctl status wazuh-agent
+2026-03-05T21:12:05.753313+07:00 huy-VMware-Virtual-Platform sudo: pam_unix(sudo:session): session opened for user root(uid=0) by huy(uid=1000)
+2026-03-05T21:12:06.877555+07:00 huy-VMware-Virtual-Platform sudo: pam_unix(sudo:session): session closed for user root
+2026-03-05T21:12:11.167433+07:00 huy-VMware-Virtual-Platform sudo:      huy : TTY=pts/0 ; PWD=/home/huy ; USER=root ; COMMAND=/usr/bin/systemctl restart wazuh-agent
+2026-03-05T21:12:11.169104+07:00 huy-VMware-Virtual-Platform sudo: pam_unix(sudo:session): session opened for user root(uid=0) by huy(uid=1000)
+2026-03-05T21:12:21.880332+07:00 huy-VMware-Virtual-Platform sudo: pam_unix(sudo:session): session closed for user root
+2026-03-05T21:12:23.332939+07:00 huy-VMware-Virtual-Platform sudo:      huy : TTY=pts/0 ; PWD=/home/huy ; USER=root ; COMMAND=/usr/bin/systemctl status wazuh-agent
+2026-03-05T21:12:23.453225+07:00 huy-VMware-Virtual-Platform sudo: pam_unix(sudo:session): session opened for user root(uid=0) by huy(uid=1000)
+2026-03-05T21:12:24.407951+07:00 huy-VMware-Virtual-Platform sudo: pam_unix(sudo:session): session closed for user root
+2026-03-05T21:15:01.419058+07:00 huy-VMware-Virtual-Platform CRON[5793]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-03-05T21:15:01.441528+07:00 huy-VMware-Virtual-Platform CRON[5793]: pam_unix(cron:session): session closed for user root
+2026-03-05T21:17:01.436586+07:00 huy-VMware-Virtual-Platform CRON[6546]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-03-05T21:17:01.444350+07:00 huy-VMware-Virtual-Platform CRON[6546]: pam_unix(cron:session): session closed for user root
+2026-03-05T21:17:41.816744+07:00 huy-VMware-Virtual-Platform sshd[6549]: Accepted password for ubuntu from 192.168.138.20 port 42052 ssh2
+2026-03-05T21:17:41.819343+07:00 huy-VMware-Virtual-Platform sshd[6549]: pam_unix(sshd:session): session opened for user ubuntu(uid=1001) by ubuntu(uid=0)
+2026-03-05T21:17:41.859728+07:00 huy-VMware-Virtual-Platform systemd-logind[1109]: New session 7 of user ubuntu.
+2026-03-05T21:17:41.928150+07:00 huy-VMware-Virtual-Platform (systemd): pam_unix(systemd-user:session): session opened for user ubuntu(uid=1001) by ubuntu(uid=0)
+2026-03-05T21:25:01.470325+07:00 huy-VMware-Virtual-Platform CRON[6859]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-03-05T21:25:01.478850+07:00 huy-VMware-Virtual-Platform CRON[6859]: pam_unix(cron:session): session closed for user root
+2026-03-05T21:26:47.845617+07:00 huy-VMware-Virtual-Platform sshd[6644]: Received disconnect from 192.168.138.20 port 42052:11: disconnected by user
+2026-03-05T21:26:47.848032+07:00 huy-VMware-Virtual-Platform sshd[6644]: Disconnected from user ubuntu 192.168.138.20 port 42052
+2026-03-05T21:26:47.849145+07:00 huy-VMware-Virtual-Platform sshd[6549]: pam_unix(sshd:session): session closed for user ubuntu
+2026-03-05T21:26:47.861821+07:00 huy-VMware-Virtual-Platform systemd-logind[1109]: Session 7 logged out. Waiting for processes to exit.
+2026-03-05T21:26:47.876452+07:00 huy-VMware-Virtual-Platform systemd-logind[1109]: Removed session 7.
+2026-03-05T21:26:59.544613+07:00 huy-VMware-Virtual-Platform sshd[6877]: Accepted password for ubuntu from 192.168.138.20 port 54422 ssh2
+2026-03-05T21:26:59.546884+07:00 huy-VMware-Virtual-Platform sshd[6877]: pam_unix(sshd:session): session opened for user ubuntu(uid=1001) by ubuntu(uid=0)
+2026-03-05T21:26:59.573909+07:00 huy-VMware-Virtual-Platform systemd-logind[1109]: New session 10 of user ubuntu.
+2026-03-05T21:26:59.624782+07:00 huy-VMware-Virtual-Platform (systemd): pam_unix(systemd-user:session): session opened for user ubuntu(uid=1001) by ubuntu(uid=0)
+2026-03-05T21:30:01.500443+07:00 huy-VMware-Virtual-Platform CRON[7083]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-03-05T21:30:01.506057+07:00 huy-VMware-Virtual-Platform CRON[7083]: pam_unix(cron:session): session closed for user root
+2026-03-05T21:34:32.719289+07:00 huy-VMware-Virtual-Platform dbus-daemon[1064]: [system] Failed to activate service 'org.bluez': timed out (service_start_timeout=25000ms)
+2026-03-05T21:35:01.515593+07:00 huy-VMware-Virtual-Platform CRON[7123]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-03-05T21:35:01.521234+07:00 huy-VMware-Virtual-Platform CRON[7123]: pam_unix(cron:session): session closed for user root
+2026-03-05T21:45:01.536176+07:00 huy-VMware-Virtual-Platform CRON[7155]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-03-05T21:45:01.544787+07:00 huy-VMware-Virtual-Platform CRON[7155]: pam_unix(cron:session): session closed for user root
+2026-03-05T21:55:01.563702+07:00 huy-VMware-Virtual-Platform CRON[7320]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-03-05T21:55:01.569164+07:00 huy-VMware-Virtual-Platform CRON[7320]: pam_unix(cron:session): session closed for user root
+2026-03-05T22:05:01.585092+07:00 huy-VMware-Virtual-Platform CRON[7339]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-03-05T22:05:01.591446+07:00 huy-VMware-Virtual-Platform CRON[7339]: pam_unix(cron:session): session closed for user root
+2026-03-06T20:44:50.848811+07:00 huy-VMware-Virtual-Platform systemd-logind[1173]: New seat seat0.
+2026-03-06T20:44:50.860023+07:00 huy-VMware-Virtual-Platform systemd-logind[1173]: Watching system buttons on /dev/input/event0 (Power Button)
+2026-03-06T20:44:50.872140+07:00 huy-VMware-Virtual-Platform systemd-logind[1173]: Watching system buttons on /dev/input/event1 (AT Translated Set 2 keyboard)
+2026-03-06T20:44:51.134204+07:00 huy-VMware-Virtual-Platform polkitd[1118]: Loading rules from directory /etc/polkit-1/rules.d
+2026-03-06T20:44:51.141966+07:00 huy-VMware-Virtual-Platform polkitd[1118]: Loading rules from directory /usr/share/polkit-1/rules.d
+2026-03-06T20:44:51.199369+07:00 huy-VMware-Virtual-Platform polkitd[1118]: Finished loading, compiling and executing 16 rules
+2026-03-06T20:44:51.199541+07:00 huy-VMware-Virtual-Platform polkitd[1118]: Acquired the name org.freedesktop.PolicyKit1 on the system bus
+2026-03-06T20:44:53.480121+07:00 huy-VMware-Virtual-Platform sshd[1598]: Server listening on 0.0.0.0 port 22.
+2026-03-06T20:44:53.482052+07:00 huy-VMware-Virtual-Platform sshd[1598]: Server listening on :: port 22.
+2026-03-06T20:44:53.966718+07:00 huy-VMware-Virtual-Platform gdm-launch-environment]: pam_unix(gdm-launch-environment:session): session opened for user gdm(uid=120) by (uid=0)
+2026-03-06T20:44:54.028499+07:00 huy-VMware-Virtual-Platform systemd-logind[1173]: New session c1 of user gdm.
+2026-03-06T20:44:54.093692+07:00 huy-VMware-Virtual-Platform (systemd): pam_unix(systemd-user:session): session opened for user gdm(uid=120) by gdm(uid=0)
+2026-03-06T20:45:00.336715+07:00 huy-VMware-Virtual-Platform polkitd[1118]: Registered Authentication Agent for unix-session:c1 (system bus name :1.40 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+2026-03-06T20:45:01.128291+07:00 huy-VMware-Virtual-Platform CRON[2276]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-03-06T20:45:01.157373+07:00 huy-VMware-Virtual-Platform CRON[2276]: pam_unix(cron:session): session closed for user root
+2026-03-06T20:45:16.647014+07:00 huy-VMware-Virtual-Platform gdm-password]: gkr-pam: unable to locate daemon control file
+2026-03-06T20:45:16.647509+07:00 huy-VMware-Virtual-Platform gdm-password]: gkr-pam: stashed password to try later in open session
+2026-03-06T20:45:16.658391+07:00 huy-VMware-Virtual-Platform gdm-password]: pam_unix(gdm-password:session): session opened for user huy(uid=1000) by huy(uid=0)
+2026-03-06T20:45:16.684776+07:00 huy-VMware-Virtual-Platform systemd-logind[1173]: New session 3 of user huy.
+2026-03-06T20:45:16.732782+07:00 huy-VMware-Virtual-Platform (systemd): pam_unix(systemd-user:session): session opened for user huy(uid=1000) by huy(uid=0)
+2026-03-06T20:45:17.217814+07:00 huy-VMware-Virtual-Platform gdm-password]: gkr-pam: unlocked login keyring
+2026-03-06T20:45:16.474602+07:00 huy-VMware-Virtual-Platform gnome-keyring-daemon[2995]: The Secret Service was already initialized
+2026-03-06T20:45:16.475512+07:00 huy-VMware-Virtual-Platform gnome-keyring-daemon[3133]: discover_other_daemon: 1
+2026-03-06T20:45:16.476504+07:00 huy-VMware-Virtual-Platform gnome-keyring-daemon[2995]: The PKCS#11 component was already initialized
+2026-03-06T20:45:16.503855+07:00 huy-VMware-Virtual-Platform gnome-keyring-daemon[3134]: discover_other_daemon: 1
+2026-03-06T20:45:16.527122+07:00 huy-VMware-Virtual-Platform gnome-keyring-daemon[3142]: discover_other_daemon: 1
+2026-03-06T20:45:19.676386+07:00 huy-VMware-Virtual-Platform polkitd[1118]: Registered Authentication Agent for unix-session:3 (system bus name :1.78 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+2026-03-06T20:45:23.059299+07:00 huy-VMware-Virtual-Platform gdm-launch-environment]: pam_unix(gdm-launch-environment:session): session closed for user gdm
+2026-03-06T20:45:23.083658+07:00 huy-VMware-Virtual-Platform systemd-logind[1173]: Session c1 logged out. Waiting for processes to exit.
+2026-03-06T20:45:23.201974+07:00 huy-VMware-Virtual-Platform polkitd[1118]: Unregistered Authentication Agent for unix-session:c1 (system bus name :1.40, object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8) (disconnected from bus)
+2026-03-06T20:45:23.382207+07:00 huy-VMware-Virtual-Platform systemd-logind[1173]: Removed session c1.
+2026-03-06T20:45:33.586359+07:00 huy-VMware-Virtual-Platform (sd-pam): pam_unix(systemd-user:session): session closed for user gdm
+2026-03-06T20:46:21.672019+07:00 huy-VMware-Virtual-Platform pkexec: pam_unix(polkit-1:session): session opened for user root(uid=0) by huy(uid=1000)
+2026-03-06T20:46:21.673368+07:00 huy-VMware-Virtual-Platform pkexec[4132]: huy: Executing command [USER=root] [TTY=unknown] [CWD=/home/huy] [COMMAND=/usr/lib/update-notifier/package-system-locked]
+2026-03-06T20:47:09.062733+07:00 huy-VMware-Virtual-Platform sshd[4147]: Connection reset by 192.168.138.1 port 59191 [preauth]
+2026-03-06T20:47:18.468019+07:00 huy-VMware-Virtual-Platform sshd[4149]: Accepted password for huy from 192.168.138.1 port 59192 ssh2
+2026-03-06T20:47:18.471105+07:00 huy-VMware-Virtual-Platform sshd[4149]: pam_unix(sshd:session): session opened for user huy(uid=1000) by huy(uid=0)
+2026-03-06T20:47:18.475571+07:00 huy-VMware-Virtual-Platform systemd-logind[1173]: New session 5 of user huy.
+2026-03-06T20:47:18.603569+07:00 huy-VMware-Virtual-Platform sshd[4217]: Received disconnect from 192.168.138.1 port 59192:11: disconnected by user
+2026-03-06T20:47:18.604289+07:00 huy-VMware-Virtual-Platform sshd[4217]: Disconnected from user huy 192.168.138.1 port 59192
+2026-03-06T20:47:18.604853+07:00 huy-VMware-Virtual-Platform sshd[4149]: pam_unix(sshd:session): session closed for user huy
+2026-03-06T20:47:18.611473+07:00 huy-VMware-Virtual-Platform systemd-logind[1173]: Session 5 logged out. Waiting for processes to exit.
+2026-03-06T20:47:18.614716+07:00 huy-VMware-Virtual-Platform systemd-logind[1173]: Removed session 5.
+2026-03-06T20:47:54.221647+07:00 huy-VMware-Virtual-Platform sshd[4228]: Accepted password for huy from 192.168.138.1 port 58820 ssh2
+2026-03-06T20:47:54.223993+07:00 huy-VMware-Virtual-Platform sshd[4228]: pam_unix(sshd:session): session opened for user huy(uid=1000) by huy(uid=0)
+2026-03-06T20:47:54.231263+07:00 huy-VMware-Virtual-Platform systemd-logind[1173]: New session 6 of user huy.
