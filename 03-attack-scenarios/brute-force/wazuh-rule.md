@@ -1,5 +1,6 @@
 ## 1. Tổng quan
-File này mô tả các rule Wazuh được sử dụng để phát hiện tấn công Brute Force SSH, bao gồm các rule mặc định có sẵn, custom rule bổ sung để tăng độ nhạy phát hiện, cấu hình Active Response tự động block IP kẻ tấn công, và cách kiểm tra rule hoạt động đúng.
+- File này mô tả các rule Wazuh được sử dụng để phát hiện tấn công Brute Force SSH, bao gồm các rule mặc định có sẵn, custom rule bổ sung để tăng độ nhạy phát hiện, cấu hình Active Response tự động block IP kẻ tấn công, và cách kiểm tra rule hoạt động đúng.
+
 ## 2. Các rule mặc định của Wazuh
 - Các rule mặc định của Wazuh sẽ nằm tại: ```/var/ossec/ruleset/rules/0095-sshd_rules.xml```
 
@@ -56,3 +57,58 @@ File này mô tả các rule Wazuh được sử dụng để phát hiện tấn
 
 ## 3. Custom rule
 - Các rule được thêm sẽ nằm tại: ``` /var/ossec/etc/rules/local_rules.xml```
+![alt text](screenshots/custome-rules.png)
+### Rule 100002: Early alert
+```
+  <rule id="100002" level="8" frequency="3" timeframe="60">
+    <if_matched_sid>5760</if_matched_sid>
+    <same_source_ip/>
+    <description>SSH: Possible brute force detected early - $(srcip)</description>
+    <mitre>
+      <id>T1110.001</id>
+    </mitre>
+    <group>authentication_failures,brute_force</group>
+  </rule>
+```
+
+### Rule 100003: High-intensity bruteforce
+```
+<rule id="100003" level="12" frequency="10" timeframe="60">
+    <if_matched_sid>5760</if_matched_sid>
+    <same_source_ip/>
+    <description>SSH: High frequency brute force confirmed - $(srcip)</description>
+    <mitre>
+      <id>T1110.001</id>
+    </mitre>
+    <group>authentication_failures,brute_force</group>
+  </rule>
+```
+
+## 4. Active response
+- Wazuh Active Response cho phép tự động thực thi hành động khi một rule kích hoạt — trong trường hợp này là block IP kẻ tấn công ngay khi phát hiện brute force
+- Mở file cấu hình của Wazuh ```/var/ossec/etc/ossec.conf```
+![alt text](screenshots/active-response.png)
+```
+<active-response>
+  <command>firewall-drop</command> // dùng script có sẵn của Wazuh để block IP bằng iptables
+  <location>local</location>       // chạy trên chính máy agent bị tấn công
+  <rules_id>40111</rules_id>       // chỉ kích hoạt khi rule 40111 fired
+  <timeout>300</timeout>           //  block IP trong 300 giây
+</active-response>
+```
+- Nếu muốn tự động hóa phản hồi sự cố thì bên phía agent phải bật wazuh-execd. Tiến hành kiểm tra bằng câu lệnh: ```sudo systemctl status wazuh-agent```
+![alt text](screenshots/status-wazuhagent1.png)
+- Chúng tra có thể thấy trong các service đang chạy thì không có sự xuất hiện của wazuh-execd.
+- Ta chạy service bằng câu lệnh: ```sudo /var/ossec/bin/wazuh-execd```
+- Khởi động lại wazuh-agent: ```sudo systemctl restart wazuh-agent```
+- Kiểm tra lại dịch vụ: ```sudo systemctl status wazuh-agent```
+![alt text](screenshots/status-wazuhagent2.png)
+
+## 5. Kiểm tra rule
+- Tiến hành chạy lại kịch bản brute force từ máy kali
+![alt text](screenshots/wazuh-rule-100003.png)
+![alt text](screenshots/wazuh-rule-100002.png)
+- Ta có thể thấy rằng rule 100002 và 100003 đang hoạt động tốt
+
+- Ta kiểm tra phản hồi sự cố bên máy agent: ```sudo tail -f /var/ossec/logs/active-responses.log```
+![alt text](screenshots/firewall-drop.png)
