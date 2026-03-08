@@ -44,9 +44,9 @@ Mục tiêu:
 - Kiểm tra khả năng tương quan: nhiều lần thất bại + 1 lần thành công = tấn công brute force thành công
 ```
 
-Bước 3 — Sử dụng thông tin xác thực đã chiếm đoạt
+Bước 3 — Leo thang đặc quyền
 ```
-Mô tả: Kẻ tấn công sử dụng tài khoản vừa chiếm được để thực hiện các hành động trong hệ thống: duyệt file, truy cập tài nguyên mạng, leo thang đặc quyền nếu có thể.
+Mô tả: Kẻ tấn công sử dụng tài khoản vừa chiếm được để thực hiện các hành động trong hệ thống: duyệt file, truy cập tài nguyên mạng, leo thang đặc quyền.
 Mục tiêu:
 - Theo dõi hành vi sử dụng credential hợp lệ sau khi bị lộ
 - Phân tích rủi ro khi tài khoản người dùng thông thường bị xâm nhập

@@ -112,3 +112,28 @@
 
 - Ta kiểm tra phản hồi sự cố bên máy agent: ```sudo tail -f /var/ossec/logs/active-responses.log```
 ![alt text](screenshots/firewall-drop.png)
+- Sau khi khởi động wazuh-execd, tiến hành chạy lại kịch bản brute force từ Kali. Theo dõi file active-responses.log trên Ubuntu Agent, hệ thống ghi nhận toàn bộ quá trình phản ứng tự động
+```
+active-response/bin/firewall-drop: Starting //Khởi động script
+```
+- Ngay khi rule 40111 kích hoạt trên Wazuh Server, Server lập tức gửi tín hiệu xuống wazuh-execd trên Ubuntu Agent để thực thi script firewall-drop. 
+- Wazuh Server gửi toàn bộ context của alert xuống agent dưới dạng JSON với "command":"add" — lệnh yêu cầu block IP.
+```
+rule.id: 40111, level: 10 — alert kích hoạt lệnh này
+srcip: 192.168.138.20 — IP cần block
+agent.id: 004, agent.name: UbuntuAgent — agent thực thi
+mitre.technique: Brute Force, tactic: Credential Access — phân loại kỹ thuật tấn công
+```
+- Kiểm tra trc khi block:
+```
+"command":"check_keys","parameters":{"keys":["192.168.138.20"]}
+```
+- Trước khi thực hiện block, script kiểm tra xem IP 192.168.138.20 đã tồn tại trong danh sách block chưa — tránh block trùng hoặc xung đột rule iptables.
+- Block IP:
+```
+"command":"continue"
+```
+- Xác nhận IP chưa bị block trước đó, script tiến hành thêm rule iptables để chặn toàn bộ traffic từ 192.168.138.20. Từ thời điểm này, mọi kết nối từ Kali Linux đến Ubuntu Agent đều bị từ chối ở tầng network — kể cả SSH, ping hay bất kỳ giao thức nào khác.
+- Sau khi Active Response thực thi, tiến hành kiểm tra từ phía Kali Linux bằng cách thử kết nối SSH vào Ubuntu Agent:
+![alt text](screenshots/SSH-failed.png)
+- đây là dấu hiệu packet bị drop hoàn toàn ở tầng network bởi iptables, không có phản hồi nào được gửi lại cho Kali. Kẻ tấn công lúc này hoàn toàn bị cô lập khỏi Victim 2 mà không biết lý do tại sao kết nối không thành công.
