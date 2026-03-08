@@ -1,7 +1,8 @@
 1. Mục tiêu
 ```
 Bài lab mô phỏng một chuỗi tấn công hoàn chỉnh theo vòng đời tấn công thực tế trong môi trường doanh nghiệp, bao gồm các giai đoạn:
-Phishing → Initial Access → Brute Force → Credential Compromise → Lateral Movement → Detection → Automation
+Phishing → Initial Access → Brute Force → Credential Compromise → Privilege Escalation → Persistence → Detection → Automation
+
 Thông qua kịch bản này, hệ thống được kiểm tra khả năng:
 - Thu thập log từ nhiều máy trạm trong cùng mạng nội bộ
 - Phát hiện hành vi bất thường dựa trên rule có sẵn và tùy chỉnh
@@ -16,7 +17,7 @@ trọng cần xem ngay, kèm theo file đính kèm hoặc đường link tải v
 File độc hại chứa một reverse shell payload: khi chạy, máy nạn nhân tự động mở kết nối ra ngoài đến máy chủ của kẻ tấn công. Vì đây là kết nối   
 đi ra (outbound) chứ không phải kết nối vào (inbound), firewall thông thường không chặn được. Qua kết nối này, kẻ tấn công có thể điều khiển máy nạn nhân từ xa và từ đó hoạt động bên trong mạng nội bộ như một thiết bị hợp lệ — đây là lý do kẻ tấn công được cấp phát IP trong dải 192.168 138.0/24.
 
-Lưu ý: Trong bài lab này, bước Initial Access được giả định đã thành công.   Kali Linux đóng vai trò máy của kẻ tấn công đã có mặt trong mạng nội bộ và bắt đầu thực hiện các bước tiếp theo của chuỗi tấn công.
+Lưu ý: Trong bài lab này, bước Initial Access được giả định đã thành công. Kali Linux đóng vai trò máy của kẻ tấn công đã có mặt trong mạng nội bộ và bắt đầu thực hiện các bước tiếp theo của chuỗi tấn công.
 ```
 
 3. Chuỗi tấn công
@@ -46,19 +47,20 @@ Mục tiêu:
 
 Bước 3 — Leo thang đặc quyền
 ```
-Mô tả: Kẻ tấn công sử dụng tài khoản vừa chiếm được để thực hiện các hành động trong hệ thống: duyệt file, truy cập tài nguyên mạng, leo thang đặc quyền.
+Mô tả: User ubuntu không có quyền sudo, kẻ tấn công tìm kiếm vector leo thang đặc quyền. Phát hiện /usr/bin/python3 có SUID bit được set do misconfiguration — khai thác để spawn shell với quyền root.
+Công cụ: find, python3
 Mục tiêu:
-- Theo dõi hành vi sử dụng credential hợp lệ sau khi bị lộ
-- Phân tích rủi ro khi tài khoản người dùng thông thường bị xâm nhập
+- Kiểm tra khả năng phát hiện SUID abuse qua Wazuh FIM
+- Mô phỏng rủi ro của misconfiguration trong môi trường thực tế
 ```
 
-Bước 4 — Lateral Movement sang Victim 2
+Bước 4 — Persistence
 ```
-Mô tả: Từ Victim 2 đã bị kiểm soát, kẻ tấn công thực hiện di chuyển ngang sang Victim 3 (Window agent) thông qua RDP, sử dụng credential tìm được hoặc credential mặc định.
-Công cụ: RDP client tích hợp sẵn
+Mô tả: Sau khi có quyền root, kẻ tấn công thiết lập cơ chế duy trì quyền truy cập lâu dài vào hệ thống — đảm bảo có thể quay lại ngay cả khi session hiện tại bị đóng hoặc mật khẩu ubuntu bị đổi. Các kỹ thuật bao gồm thêm SSH key vào authorized_keys của root, tạo cronjob reverse shell, hoặc tạo user backdoor ẩn.
+Công cụ: ssh-keygen, crontab
 Mục tiêu:
-- Phát hiện đăng nhập từ xa bất thường giữa hai máy nội bộ
-- Phân tích sự kiện: IP nguồn là máy nội bộ thay vì IP ngoài
+- Kiểm tra khả năng phát hiện thay đổi file nhạy cảm qua Wazuh FIM
+- Mô phỏng giai đoạn persistence trong chuỗi tấn công thực tế
 ```
 
 Bước 5 — Phát hiện và tự động hóa phản ứng
