@@ -149,7 +149,13 @@ ssh ubuntu@192.168.138.150
 - Điều này tưởng chừng như rất bình thường, có thể chỉ là một nhân viên nào đó đã truy cập vào tài khoản ubuntu này.
 Tuy nhiên đặt trong ngữ cảnh có rất nhiều luồng đăng nhập bất thường vào tài khoản ubuntu thì đây không thể nào là một người dùng bình thường được, đây là đặc trưng của công cụ tự động.
 - Toàn bộ chuỗi từ lần thử đầu tiên đến lúc đăng nhập thành công diễn ra trong vỏn vẹn vài phút — tốc độ không thể đạt được nếu là người thao tác thủ công. CHo nên có thể chắc chắn đây là một cảnh báo đúng (True positive).
-- Cần chuyển tiếp sang phần phản ứng sự cố.
+- Nhưng tài khoản người dùng ubuntu này không có quyền sudo bằng cách kiểm tra ```sudo -l```
+![alt text](screenshots/check-sudo.png)
+- Trong danh sách trả về, phát hiện /usr/bin/python3.2 có SUID bit được set — đây là misconfiguration nghiêm trọng vì python3 cho phép thực thi mã tùy ý. Kẻ tấn công lợi dụng điều này để gọi os.setuid(0) — chuyển UID về 0 (root) — rồi spawn shell mới: ```python3 -c 'import os; os.setuid(0); os.system("/bin/bash")'```
+![alt text](screenshots/check-sudo2.png)
+![alt text](screenshots/check-sudo3.png)
+- Kết quả uid=0(root) xác nhận leo thang đặc quyền thành công.
+
 
 ### Phát hiện bổ sung
 - Wazuh Vulnerability Detector chạy scan định kỳ trên UbuntuAgent và phát hiện CVE-2024-56180 đang tồn tại trên kernel linux-image-6.17.0-14-generic với điểm CVSS 9.8/10 — lỗ hổng Remote Code Execution cho phép kẻ tấn công thực thi mã từ xa mà không cần xác thực, hiện chưa được vá (status: Active). Phát hiện này cho thấy giá trị của SIEM không chỉ dừng lại ở việc phát hiện tấn công đang diễn ra, mà còn chủ động cảnh báo các rủi ro tiềm ẩn trong hệ thống trước khi bị khai thác.
