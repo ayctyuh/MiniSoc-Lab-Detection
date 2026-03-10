@@ -7,36 +7,27 @@ Môi trường mạng được thiết kế nhằm mô phỏng hệ thống mạ
 - Kiểm tra khả năng phát hiện tấn công của hệ thống dựa trên rule và tương quan sự kiện
 
 2. Kiến trúc tổng thể
-Toàn bộ môi trường lab được triển khai trên các máy ảo (VMware/VirtualBox), cấu hình trong cùng một dải mạng nội bộ 192.168.138.0/24. Các máy giao tiếp trực tiếp với nhau thông qua virtual switch mà không qua NAT hay routing phức tạp.
+Toàn bộ môi trường lab được triển khai trên các máy ảo (VMware/VirtualBox), cấu hình trong cùng một dải mạng nội bộ 192.168.138.0/24.
 ```
 Thành phần    Vai trò               Hệ điều hành        IP                      Ghi chú
 Kali        Attacker(victim1)         Kali Linux      192.168.138.20        Công cụ: Hydra, Nmap, Netcat
 Ubuntu      AgentVictim 2             Ubuntu 22.04    192.168.138.150       Wazuh Agent, SSH enabled
-Windows     AgentVictim 3             Windows 10      192.168.138.147       Wazuh Agent, RDP enabled
 Wazuh Server    SIEM                  Ubuntu 22.04    192.168.138.10        Wazuh Manager + Dashboard
 Shuffle         SOAR                  Ubuntu 22.04    192.168.138.149       Tự động hóa phản ứng sự cố
 ```
 
 3. Phân vùng và luồng kết nối
-Tất cả các máy nằm trong cùng một subnet 192.168.138.0/24, mô phỏng một flat network nội bộ trong doanh nghiệp nhỏ chưa áp dụng phân đoạn mạng (network segmentation) tạo điều kiện cho việc di chuyển ngang của hacker.
+Tất cả các máy nằm trong cùng một subnet 192.168.138.0/24, mô phỏng một flat network nội bộ trong doanh nghiệp nhỏ chưa áp dụng phân đoạn mạng (network segmentation). Khi không có sự phân tách giữa các vùng mạng, một máy bị chiếm là bàn đạp để kẻ tấn công leo thang và duy trì quyền truy cập trên chính máy đó trước khi mở rộng ra.
 Luồng tấn công:
-- Kali Linux → Ubuntu Agent: Brute Force qua SSH (port 22)
-- Ubuntu Agent → Windows Agent: Lateral Movement qua SSH/RDP sau khi chiếm được credential
+- Kali Linux → Ubuntu Agent: Brute Force SSH (port 22) → Credential Access → Privilege Escalation → Persistence
 
 Luồng giám sát:
-- Windows Agent → Wazuh Server: Wazuh Agent gửi log liên tục về SIEM (port 1514)
 - Ubuntu Agent → Wazuh Server: Wazuh Agent gửi log liên tục về SIEM (port 1514)
 
 Luồng phản ứng:
-- Wazuh Server → Shuffle: Khi phát hiện alert đạt ngưỡng, Wazuh gửi webhook đến Shuffle (port 443)
-- Shuffle thực hiện các hành động tự động: gửi email cảnh báo, tạo ticket, ghi log sự cố
+- Wazuh Server → Shuffle: Khi alert đạt ngưỡng (Level 10), Wazuh gửi webhook đến Shuffle (port 443)
+- Shuffle thực hiện các hành động tự động: gửi email cảnh báo đến admin, tạo ticket sự cố, kích hoạt Active Response block IP kẻ tấn công
 
 4. Mô hình kết nối
 
 ![network-topology](diagram/network-topology.png)
-
-5. Lý do lựa chọn mô hình
-Việc đặt tất cả máy trong cùng một subnet phẳng (flat network) là có chủ đích, nhằm:
-- Đơn giản hóa môi trường lab: Không cần cấu hình routing phức tạp, tập trung vào kịch bản tấn công và phát hiện
-- Phản ánh thực tế: Nhiều doanh nghiệp vừa và nhỏ vẫn vận hành flat network mà không có VLAN hay micro-segmentation
-- Tối đa hóa khả năng quan sát: Wazuh Agent trên cả hai máy nạn nhân đảm bảo mọi sự kiện đều được thu thập và gửi về SIEM để phân tích
