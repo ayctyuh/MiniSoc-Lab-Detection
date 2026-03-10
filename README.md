@@ -43,8 +43,7 @@ Phishing → Initial Access → Brute Force SSH → Credential Access
 | Kali Linux | 192.168.138.20 | Kali Rolling | Kẻ tấn công |
 | Ubuntu Agent | 192.168.138.150 | Ubuntu 24.04 | Nạn nhân (Victim 2) |
 | Wazuh Server | 192.168.138.10 | Ubuntu 22.04 | SIEM |
-| Shuffle | 192.168.138.149 | — | SOAR |
-| Windows Agent | 192.168.138.147 | Windows 10 | Máy trạm (monitoring) |
+| Shuffle | 192.168.138.149 | Ubuntu 22.04 | SOAR |
 
 Tất cả các máy nằm trong subnet `192.168.138.0/24`, mô phỏng flat network nội bộ doanh nghiệp nhỏ chưa áp dụng network segmentation.
 
@@ -72,7 +71,7 @@ MINISOC-LAB-DETECTION/
 │   └── shuffle-workflow.md        # Workflow Shuffle xử lý alert
 │
 ├── report-pdf/                    # Báo cáo tổng hợp dạng PDF
-└── README.md                      # File này
+└── README.md                      # Giới thiệu dự án
 ```
 
 ---
